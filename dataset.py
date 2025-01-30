@@ -15,7 +15,7 @@ client = gspread.authorize(creds)
 
 #URL du gsheet 'karama'
 spreadsheet_url = "https://docs.google.com/spreadsheets/d/1xy90IapIRhTUjDMRRJjqjihPFjvfK9HbjzWCYDpLmP8/edit#gid=1951714951"
-## Récupérer le "data cleaned réponses" Merci Aina Ramaromanana ^-^
+## Récupérer le "data cleaned réponses" Merci Aina ^-^
 sheet = client.open_by_url(spreadsheet_url).sheet1
 
 ## Récupérer les données sous forme de DataFrame
