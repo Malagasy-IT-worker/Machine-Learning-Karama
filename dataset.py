@@ -1,3 +1,7 @@
+"""
+    This file contains the code to scrape the data from the google sheet in the drive of the owner
+"""
+
 import gspread 
 import pandas as pd
 from oauth2client.service_account import ServiceAccountCredentials
@@ -18,5 +22,5 @@ sheet = client.open_by_url(spreadsheet_url).sheet1
 data = sheet.get_all_records()
 df = pd.DataFrame(data)
 
-df.to_csv("data/train.csv", index=False)
+df.to_csv("data/Karama (réponses) - Réponses _cleaned_.csv", index=False)
 print("Données sauvegardées dans data/train.csv avec succès !")
