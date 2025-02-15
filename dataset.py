@@ -1,5 +1,6 @@
 """
     This file contains the code to scrape the data from the google sheet in the drive of the owner
+    This is optional because we can download it directly as a coma separated value from the gsheets.
 """
 
 import gspread 
