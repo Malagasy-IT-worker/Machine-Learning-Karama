@@ -1,3 +1,8 @@
 gspread
 pandas
 oauth2client
+pyyaml
+scikit-learn
+fastapi
+gunicorn
+uvicorn
