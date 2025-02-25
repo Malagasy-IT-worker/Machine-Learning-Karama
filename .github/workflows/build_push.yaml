@@ -18,4 +18,4 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           push: true
-          tags: ankoayfeno/ml_karama:$(date +%s)
+          tags: ankoayfeno/ml_karama:${{ github.run_number }}
