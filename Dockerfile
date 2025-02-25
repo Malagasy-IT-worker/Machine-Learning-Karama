@@ -11,7 +11,8 @@ WORKDIR /app
 
 COPY . ./
 
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install --no-cache-dir --upgrade pip setuptools wheel \
+    && PIP_NO_BUILD_ISOLATION=1 pip install --no-cache-dir -r requirements.txt
 
 EXPOSE 8080
 
