@@ -1,0 +1,15 @@
+services:
+  api_prod:
+    profiles:
+      - prod
+    image: ankoayfeno/ml_karama:latest
+    volumes:
+      - ./logs.log:/app/logs.log
+    restart: unless-stopped
+
+  api_local:
+    image: ml_karama
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./logs.log:/app/logs.log
