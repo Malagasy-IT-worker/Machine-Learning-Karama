@@ -31,8 +31,9 @@ list_of_files = [
     "config.yml",
     "data.dvc",
     "dataset.py",
-    "dockerfile",
+    "Dockerfile",
     "LICENSE",
+    "docker-compose.yaml",
     "main.py",
     "Makefile",
     "mkdocs.yml",
@@ -60,4 +61,3 @@ for filepath in list_of_files:
 
     else:
         logging.info(f"File already exists: {filepath}")
-        
