@@ -14,15 +14,12 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Check if file exists
-        run: ls -lah $(pwd)/docker-compose.yaml
-
       - name: Deploy to Dev server
         uses: easingthemes/ssh-deploy@main
         with:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
           ARGS: "-rlgoDzvc"
-          SOURCE: "./docker-compose.yaml" # Vérifie bien ce chemin
+          SOURCE: "./docker-compose.yaml"
           REMOTE_HOST: ${{ vars.REMOTE_HOST }}
           REMOTE_USER: ${{ vars.REMOTE_USER }}
           TARGET: "/home/${{ vars.REMOTE_USER }}/traefik/ml_karama/"
