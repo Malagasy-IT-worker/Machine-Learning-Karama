@@ -18,6 +18,6 @@ jobs:
           REMOTE_HOST: ${{ vars.REMOTE_HOST }}
           REMOTE_USER: ${{ vars.REMOTE_USER }}
           TARGET: "/home/${{ vars.REMOTE_USER }}/traefik/ml_karama/"
-          SCRIPT: |
+          SCRIPT_AFTER: |
             docker-compose -f "/home/${{ vars.REMOTE_USER }}/traefik/ml_karama/docker-compose.yaml" --profile prod down
             docker-compose -f "/home/${{ vars.REMOTE_USER }}/traefik/ml_karama/docker-compose.yaml" --profile prod up -d
