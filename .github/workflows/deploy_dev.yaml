@@ -1,0 +1,19 @@
+name: deploy dev
+run-name:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Deploy to Dev server
+        uses: easingthemes/ssh-deploy@main
+        with:
+          SSH_PRIVATE_KEY: ${{ vars.SSH_PRIVATE_KEY }}
+          ARGS: "-rlgoDzvc -i"
+          SOURCE: "docker-compose.yaml"
+          REMOTE_HOST: ${{ vars.REMOTE_HOST }}
+          REMOTE_USER: ${{ vars.REMOTE_USER }}
+          TARGET: "/home/${{ vars.REMOTE_USER }}/traefik/ml_karama/docker-compose.yaml"
+          SCRIPT: |
+            docker-compose -f "/home/${{ vars.REMOTE_USER }}/traefik/ml_karama/docker-compose.yaml" --profile dev down
+            docker-compose -f "/home/${{ vars.REMOTE_USER }}/traefik/ml_karama/docker-compose.yaml" --profile dev up -d

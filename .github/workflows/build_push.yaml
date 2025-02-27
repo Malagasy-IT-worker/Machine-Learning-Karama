@@ -1,8 +1,11 @@
 name: build docker images
-run-name: pipeline declanched by ${{ github.actor }}
-on: [push]
+run-name: pipeline declanched by ${{ github.actor }} on branch ${{ github.ref }}.
+on:
+  push:
+    branches-ignore:
+      - main
 jobs:
-  docker:
+  docker-build-and-push:
     runs-on: ubuntu-latest
     steps:
       - name: Login to Docker Hub
