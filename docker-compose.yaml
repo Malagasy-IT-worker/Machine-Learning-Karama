@@ -1,6 +1,6 @@
 services:
   api_prod:
-    image: ankoayfeno/ml_karama:latest
+    image: ankoayfeno/ml_karama:3
     profiles:
       - prod
     volumes:
@@ -21,7 +21,7 @@ services:
   api_dev:
     profiles:
       - dev
-    image: ankoayfeno/ml_karama:latest
+    image: ankoayfeno/ml_karama:3
     volumes:
       - ./logs.log:/app/logs.log
     restart: unless-stopped
@@ -38,6 +38,8 @@ services:
       - "traefik.http.services.api-dev.loadbalancer.server.port=8080"
 
   api_local:
+    profiles:
+      - local
     build:
       context: .
       dockerfile: Dockerfile
