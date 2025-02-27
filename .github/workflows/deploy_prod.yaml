@@ -24,3 +24,4 @@ jobs:
           SCRIPT_AFTER: |
             docker-compose -f "/home/${{ vars.REMOTE_USER }}/traefik/ml_karama/docker-compose.yaml" --profile prod down
             docker-compose -f "/home/${{ vars.REMOTE_USER }}/traefik/ml_karama/docker-compose.yaml" --profile prod up -d
+
