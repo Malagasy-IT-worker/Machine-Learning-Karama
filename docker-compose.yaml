@@ -38,6 +38,8 @@ services:
       - "traefik.http.services.api-dev.loadbalancer.server.port=8080"
 
   api_local:
+    profiles:
+      - local
     build:
       context: .
       dockerfile: Dockerfile
