@@ -1,0 +1,9 @@
+data:
+  train_path: "data/train.csv"
+  test_path: "data/test.csv"
+
+model:
+  name: "KNeighborsRegressor"
+  params:
+    n_neighbors: 7
+  store_path: "models"

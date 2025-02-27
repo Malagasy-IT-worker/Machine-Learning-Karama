@@ -1,0 +1,24 @@
+name: build docker images
+run-name: pipeline declanched by ${{ github.actor }} on branch ${{ github.ref }}.
+on:
+  push:
+    branches-ignore:
+      - main
+jobs:
+  docker-build-and-push:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Login to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ vars.DOCKERHUB_USERNAME }}
+          password: ${{ vars.DOCKERHUB_TOKEN }}
+      - name: Set up QEMU #simmilate multi architecture i386/i686/armv6/armv7(32 bits),x86_64/amd64/arm64/aarch64(64bits), ppc64le(ibm server),s390x(mainframs ibm), ...
+        uses: docker/setup-qemu-action@v3
+      - name: Set up Docker Buildx #use buildx to build docker images multiarchitecture
+        uses: docker/setup-buildx-action@v3
+      - name: Build and push
+        uses: docker/build-push-action@v6
+        with:
+          push: true
+          tags: ankoayfeno/ml_karama:${{ github.run_number }}

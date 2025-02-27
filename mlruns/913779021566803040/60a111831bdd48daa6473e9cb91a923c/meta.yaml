@@ -1,0 +1,15 @@
+artifact_uri: file:///home/yvesloic/Documents/mini-projet%202025/Machine%20Learning%20Karama/mlruns/913779021566803040/60a111831bdd48daa6473e9cb91a923c/artifacts
+end_time: 1739640809106
+entry_point_name: ''
+experiment_id: '913779021566803040'
+lifecycle_stage: active
+run_id: 60a111831bdd48daa6473e9cb91a923c
+run_name: beautiful-boar-834
+run_uuid: 60a111831bdd48daa6473e9cb91a923c
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1739640809001
+status: 4
+tags: []
+user_id: yvesloic

@@ -1,195 +1,195 @@
 ,company,title,year_experience,salary,log_salary,exp_category,title_category,company_encoded,title_encoded,exp_encoded
-34,Faritra,Dev fullstack junior,0.5,300000,12.611541086966115,Junior,dev,0,1,4
-35,Tana,Stagiaire développeur backend,0.5,700000,13.45883704259595,Junior,AI,2,0,4
-36,Tana,Développeur angular junior,0.5,800000,13.592368256649284,Junior,dev,2,1,4
-37,Tana,Junior Software Engineer,0.5,1000000,13.815511557963774,Junior,dev,2,1,4
-38,Tana,Webmaster Dev wordpress,0.5,1010000,13.825461878915961,Junior,dev,2,1,4
-39,Tana,Frontend Dev,0.5,1500000,14.220976332738882,Junior,dev,2,1,4
-40,Tana,Développeur Intelligence Artificielle junior,0.5,1800000,14.403297778421795,Junior,AI,2,0,4
-41,Tana,Intégrateur web,0.5,2680000,14.801327725621299,Junior,dev,2,1,4
-42,Tana,Stagiaire,1.0,500000,13.122365377402328,Junior,AI,2,0,4
-43,Tana,Alternant,1.0,550000,13.217675375388819,Junior,dev,2,1,4
-44,Tana,Développeur Junior ReactJs,1.0,600000,13.304686600863562,Junior,dev,2,1,4
-45,Tana,Developpeur,1.0,650000,13.384729180332174,Junior,dev,2,1,4
-46,Tana,Dev full stack,1.0,800000,13.592368256649284,Junior,dev,2,1,4
-47,Tana,Freelance Data Analyst,1.0,1000000,13.815511557963774,Junior,AI,2,0,4
-48,Tana,Full stack Dev,1.0,1200000,13.997832948091215,Junior,dev,2,1,4
-49,Tana,Frontend Dev,1.0,1200000,13.997832948091215,Junior,dev,2,1,4
-50,Tana,Data analyste junior,1.0,1200000,13.997832948091215,Junior,AI,2,0,4
-51,Tana,Dev fullStack Junior,1.0,1200000,13.997832948091215,Junior,dev,2,1,4
-52,Tana,Data scientist,1.0,1200000,13.997832948091215,Junior,AI,2,0,4
-53,Tana,C++ developer,1.0,1222000,14.016000237043949,Junior,dev,2,1,4
-54,Tana,Web dev,1.0,1320000,14.093143052138025,Junior,dev,2,1,4
-55,Tana,Developpeur Odoo Junior,1.0,1400000,14.151983508870947,Junior,dev,2,1,4
-56,Tana,Junior Frontend dev,1.0,1400000,14.151983508870947,Junior,dev,2,1,4
-57,Tana,Backend dev junior,1.0,1600000,14.285514812209815,Junior,dev,2,1,4
-58,Faritra,Data Scientist,1.0,1850000,14.430696737594902,Junior,AI,0,0,4
-59,Faritra,FullStack Dev,1.0,1900000,14.45736497045232,Junior,dev,0,1,4
-60,Tana,Fullstack developer,1.0,2000000,14.508658238524095,Junior,dev,2,1,4
-61,Tana,Data scientist junior,1.0,2000000,14.508658238524095,Junior,AI,2,0,4
-62,Tana,Junior Developer Power Apps,1.0,2100000,14.557448378884015,Junior,dev,2,1,4
-63,Tana,Lead Data Scientist,1.0,2400000,14.690979711984754,Junior,AI,2,0,4
-64,Tana,Data analyst,1.0,3000000,14.914123179965662,Junior,AI,2,0,4
-65,Faritra,Software Engineer,1.0,3000000,14.914123179965662,Junior,dev,0,1,4
+34,Faritra,Dev,0.5,300000,12.611541086966115,Junior,dev,0,1,4
+35,Tana,dev,0.5,700000,13.45883704259595,Junior,dev,2,1,4
+36,Tana,dev,0.5,800000,13.592368256649284,Junior,dev,2,1,4
+37,Tana,dev,0.5,1000000,13.815511557963774,Junior,dev,2,1,4
+38,Tana,dev,0.5,1010000,13.825461878915961,Junior,dev,2,1,4
+39,Tana,dev,0.5,1500000,14.220976332738882,Junior,dev,2,1,4
+40,Tana,IA/ML Engineer,0.5,1800000,14.403297778421795,Junior,AI,2,0,4
+41,Tana,dev,0.5,2680000,14.801327725621299,Junior,dev,2,1,4
+42,Tana,dev,1.0,500000,13.122365377402328,Junior,dev,2,1,4
+43,Tana,dev,1.0,550000,13.217675375388819,Junior,dev,2,1,4
+44,Tana,dev,1.0,600000,13.304686600863562,Junior,dev,2,1,4
+45,Tana,dev,1.0,650000,13.384729180332174,Junior,dev,2,1,4
+46,Tana,dev,1.0,800000,13.592368256649284,Junior,dev,2,1,4
+47,Tana,IA/ML Engineer,1.0,1000000,13.815511557963774,Junior,AI,2,0,4
+48,Tana,dev,1.0,1200000,13.997832948091215,Junior,dev,2,1,4
+49,Tana,dev,1.0,1200000,13.997832948091215,Junior,dev,2,1,4
+50,Tana,IA/ML Engineer,1.0,1200000,13.997832948091215,Junior,AI,2,0,4
+51,Tana,dev,1.0,1200000,13.997832948091215,Junior,dev,2,1,4
+52,Tana,IA/ML Engineer,1.0,1200000,13.997832948091215,Junior,AI,2,0,4
+53,Tana,dev,1.0,1222000,14.016000237043949,Junior,dev,2,1,4
+54,Tana,dev,1.0,1320000,14.093143052138025,Junior,dev,2,1,4
+55,Tana,dev,1.0,1400000,14.151983508870947,Junior,dev,2,1,4
+56,Tana,dev,1.0,1400000,14.151983508870947,Junior,dev,2,1,4
+57,Tana,dev,1.0,1600000,14.285514812209815,Junior,dev,2,1,4
+58,Faritra,IA/ML Engineer,1.0,1850000,14.430696737594902,Junior,AI,0,0,4
+59,Faritra,dev,1.0,1900000,14.45736497045232,Junior,dev,0,1,4
+60,Tana,dev,1.0,2000000,14.508658238524095,Junior,dev,2,1,4
+61,Tana,IA/ML Engineer,1.0,2000000,14.508658238524095,Junior,AI,2,0,4
+62,Tana,dev,1.0,2100000,14.557448378884015,Junior,dev,2,1,4
+63,Tana,IA/ML Engineer,1.0,2400000,14.690979711984754,Junior,AI,2,0,4
+64,Tana,IA/ML Engineer,1.0,3000000,14.914123179965662,Junior,AI,2,0,4
+65,Faritra,dev,1.0,3000000,14.914123179965662,Junior,dev,0,1,4
 66,Tana,Dev,1.0,9600000,16.077273760604726,Junior,dev,2,1,4
-67,Tana,Junior fullstack dev,1.5,500000,13.122365377402328,Débutant,dev,2,1,0
-68,Tana,Back end junior,1.5,1400000,14.151983508870947,Débutant,dev,2,1,0
-69,Tana,Intégrateur confirmé,1.5,1500000,14.220976332738882,Débutant,dev,2,1,0
-70,Tana,Fullstack Dev,1.5,1500000,14.220976332738882,Débutant,dev,2,1,0
-71,Tana,Dev Fullstack,1.5,1760000,14.38082493519599,Débutant,dev,2,1,0
-72,Tana,FullStack Dev,1.5,2000000,14.508658238524095,Débutant,dev,2,1,0
-73,Tana,Frontend Dev,1.5,2500000,14.731801689838349,Débutant,dev,2,1,0
-74,Faritra,Backend dev,2.0,800000,13.592368256649284,Débutant,dev,0,1,0
-75,Tana,Backend Dev,2.0,850000,13.652992804936396,Débutant,dev,2,1,0
-76,Tana,Développeur Fullstack,2.0,1000000,13.815511557963774,Débutant,dev,2,1,0
-77,Tana,Agent de banque,2.0,1000000,13.815511557963774,Débutant,dev,2,1,0
-78,Tana,Full Stack Developpeur,2.0,1000000,13.815511557963774,Débutant,dev,2,1,0
-79,Tana,Frontend dev,2.0,1200000,13.997832948091215,Débutant,dev,2,1,0
-80,Tana,Jr React/Node Freelance,2.0,1400000,14.151983508870947,Débutant,dev,2,1,0
-81,Faritra,Web Designer,2.0,1400000,14.151983508870947,Débutant,dev,0,1,0
-82,Tana,Developpeur Odoo,2.0,1500000,14.220976332738882,Débutant,dev,2,1,0
-83,Tana,Dévéloppeur php,2.0,1500000,14.220976332738882,Débutant,dev,2,1,0
-84,Tana,Full stack,2.0,1500000,14.220976332738882,Débutant,dev,2,1,0
-85,Tana,Développeur Backend (symfony),2.0,1500000,14.220976332738882,Débutant,dev,2,1,0
-86,Tana,Junior frontend dev (React),2.0,1600000,14.285514812209815,Débutant,dev,2,1,0
-87,Tana,Frontend dev Junior/semi-confirmé,2.0,1600000,14.285514812209815,Débutant,dev,2,1,0
-88,Tana,Frontend Dev,2.0,1600000,14.285514812209815,Débutant,dev,2,1,0
-89,Tana,Backend Dev,2.0,1600000,14.285514812209815,Débutant,dev,2,1,0
+67,Tana,dev,1.5,500000,13.122365377402328,Débutant,dev,2,1,0
+68,Tana,dev,1.5,1400000,14.151983508870947,Débutant,dev,2,1,0
+69,Tana,dev,1.5,1500000,14.220976332738882,Débutant,dev,2,1,0
+70,Tana,Dev,1.5,1500000,14.220976332738882,Débutant,dev,2,1,0
+71,Tana,Dev,1.5,1760000,14.38082493519599,Débutant,dev,2,1,0
+72,Tana,Dev,1.5,2000000,14.508658238524095,Débutant,dev,2,1,0
+73,Tana,Dev,1.5,2500000,14.731801689838349,Débutant,dev,2,1,0
+74,Faritra,dev,2.0,800000,13.592368256649284,Débutant,dev,0,1,0
+75,Tana,Dev,2.0,850000,13.652992804936396,Débutant,dev,2,1,0
+76,Tana,Dev,2.0,1000000,13.815511557963774,Débutant,dev,2,1,0
+77,Tana,DevOps,2.0,1000000,13.815511557963774,Débutant,devops,2,2,0
+78,Tana,dev,2.0,1000000,13.815511557963774,Débutant,dev,2,1,0
+79,Tana,dev,2.0,1200000,13.997832948091215,Débutant,dev,2,1,0
+80,Tana,dev,2.0,1400000,14.151983508870947,Débutant,dev,2,1,0
+81,Faritra,dev,2.0,1400000,14.151983508870947,Débutant,dev,0,1,0
+82,Tana,dev,2.0,1500000,14.220976332738882,Débutant,dev,2,1,0
+83,Tana,Dev,2.0,1500000,14.220976332738882,Débutant,dev,2,1,0
+84,Tana,dev,2.0,1500000,14.220976332738882,Débutant,dev,2,1,0
+85,Tana,dev,2.0,1500000,14.220976332738882,Débutant,dev,2,1,0
+86,Tana,dev,2.0,1600000,14.285514812209815,Débutant,dev,2,1,0
+87,Tana,dev,2.0,1600000,14.285514812209815,Débutant,dev,2,1,0
+88,Tana,dev,2.0,1600000,14.285514812209815,Débutant,dev,2,1,0
+89,Tana,dev,2.0,1600000,14.285514812209815,Débutant,dev,2,1,0
 90,Tana,IA/ML Engineer,2.0,2000000,14.508658238524095,Débutant,AI,2,0,0
-91,Tana,Ingénieur Développeur,2.0,2000000,14.508658238524095,Débutant,dev,2,1,0
-92,Tana,React developer,2.0,2000000,14.508658238524095,Débutant,dev,2,1,0
-93,Tana,Data Scientist,2.0,2000000,14.508658238524095,Débutant,AI,2,0,0
-94,Tana,Frontend Dev,2.0,2000000,14.508658238524095,Débutant,dev,2,1,0
-95,Tana,Fullstack Developer,2.0,2100000,14.557448378884015,Débutant,dev,2,1,0
-96,Tana,"Frontend Dev (angular, react, next)",2.0,2300000,14.648420115681892,Débutant,dev,2,1,0
-97,Tana,Software engineer,2.0,2500000,14.731801689838349,Débutant,dev,2,1,0
-98,Tana,Full stack developer,2.0,2800000,14.845130332288226,Débutant,dev,2,1,0
-99,Tana,Développeur Business intelligence,2.0,2800000,14.845130332288226,Débutant,AI,2,0,0
-100,Tana,Data Analyst,2.0,3000000,14.914123179965662,Débutant,AI,2,0,0
-101,Tana,Dev Fullstack Angular .Net,2.0,3500000,15.068273812173887,Débutant,dev,2,1,0
-102,Tana,Mobile Dev,2.0,3700000,15.123843647884687,Débutant,AI,2,0,0
-103,Tana,Junior Data Scientist,2.0,4025698,15.208209118353123,Débutant,AI,2,0,0
-104,Tana,Fullstack dev,2.5,1000000,13.815511557963774,Débutant,dev,2,1,0
-105,Tana,Data Engineer,2.5,1800000,14.403297778421795,Débutant,AI,2,0,0
-106,Tana,Junior développeur,2.5,1800000,14.403297778421795,Débutant,dev,2,1,0
-107,Tana,Frontend Dev,2.5,2000000,14.508658238524095,Débutant,dev,2,1,0
-108,Tana,Frontend dev,2.5,2200000,14.603968372873895,Débutant,dev,2,1,0
-109,Tana,Senior developer,2.5,3000000,14.914123179965662,Débutant,dev,2,1,0
-110,Remote,Dev Fullstack Medior,3.0,360000,12.793862088206213,Débutant,dev,1,1,0
-111,Faritra,Technicien,3.0,800000,13.592368256649284,Débutant,dev,0,1,0
-112,Tana,fullstack dev,3.0,825000,13.623139877437296,Débutant,dev,2,1,0
-113,Tana,Infographiste/Web developer,3.0,1200000,13.997832948091215,Débutant,dev,2,1,0
-114,Tana,Développeur Fullstack,3.0,1400000,14.151983508870947,Débutant,dev,2,1,0
-115,Faritra,Software engineer,3.0,1800000,14.403297778421795,Débutant,dev,0,1,0
-116,Faritra,Software Engineer,3.0,1980000,14.498607907721096,Débutant,dev,0,1,0
-117,Tana,Backend dev,3.0,2000000,14.508658238524095,Débutant,dev,2,1,0
-118,Faritra,Developpeur unity/unreal,3.0,2000000,14.508658238524095,Débutant,dev,0,1,0
-119,Tana,Fullstack Dev (part time),3.0,2000000,14.508658238524095,Débutant,dev,2,1,0
-120,Tana,Mid Software Engineer,3.0,2000000,14.508658238524095,Débutant,dev,2,1,0
-121,Tana,dev java - angular,3.0,2000000,14.508658238524095,Débutant,dev,2,1,0
-122,Tana,Administrateur réseau,3.0,2100000,14.557448378884015,Débutant,devops,2,2,0
-123,Tana,Odoo développeur confirmé,3.0,2100000,14.557448378884015,Débutant,dev,2,1,0
-124,Tana,Full stack php confirmé,3.0,2200000,14.603968372873895,Débutant,dev,2,1,0
-125,Tana,Software Engineer,3.0,2260000,14.630875813726247,Débutant,dev,2,1,0
-126,Faritra,Full stack developer,3.0,2400000,14.690979711984754,Débutant,dev,0,1,0
-127,Tana,software engineer,3.0,2400000,14.690979711984754,Débutant,dev,2,1,0
-128,Tana,FullStack Developer,3.0,2500000,14.731801689838349,Débutant,dev,2,1,0
-129,Tana,Backend Dev,3.0,2500000,14.731801689838349,Débutant,dev,2,1,0
-130,Tana,Développeur Java/Spring Boot,3.0,2700000,14.80876270134486,Débutant,dev,2,1,0
-131,Faritra,Dev Frontend,3.0,2800000,14.845130332288226,Débutant,dev,0,1,0
-132,Tana,Frontend Dev,3.0,2800000,14.845130332288226,Débutant,dev,2,1,0
-133,Tana,DevOps Engineer / Dev Web,3.0,3000000,14.914123179965662,Débutant,devops,2,2,0
-134,Tana,FullStack dev,3.0,3000000,14.914123179965662,Débutant,dev,2,1,0
-135,Tana,Développeur Flutter,3.0,3000000,14.914123179965662,Débutant,dev,2,1,0
-136,Tana,Developer,3.0,3300000,15.009433329466965,Débutant,dev,2,1,0
-137,Tana,Frontend dev,3.0,3500000,15.068273812173887,Débutant,dev,2,1,0
-138,Faritra,Front-end Dev,3.0,3500000,15.068273812173887,Débutant,dev,0,1,0
-139,Tana,Expert IA,3.0,4000000,15.201805169084134,Débutant,AI,2,0,0
-140,Tana,Lead Backend Dev,3.0,4000000,15.201805169084134,Débutant,dev,2,1,0
-141,Tana,Data engineer,3.0,4000000,15.201805169084134,Débutant,AI,2,0,0
-142,Tana,Freelance Python Dev,3.0,4000000,15.201805169084134,Débutant,dev,2,1,0
-143,Tana,Senior frontend vue js,3.0,4800000,15.38412668421143,Débutant,dev,2,1,0
-144,Tana,Dev fullstack Js/Ts,3.0,5000000,15.424948670398354,Débutant,dev,2,1,0
-145,Tana,Senior Software Engineer,3.0,5500000,15.520258832020865,Débutant,dev,2,1,0
-146,Remote,"Backend Dev - WordPress, PrestaShop",3.0,5800000,15.573368647930426,Débutant,dev,1,1,0
-147,Tana,Consultant SAP (junior),3.5,2300000,14.648420115681892,Intermédiaire,dev,2,1,3
-148,Tana,Senior software,3.5,7000000,15.76142084987672,Intermédiaire,dev,2,1,3
-149,Tana,Développeur alternant,4.0,500000,13.122365377402328,Intermédiaire,dev,2,1,3
-150,Tana,Ingénieur développeur (Java),4.0,1485000,14.210926003619385,Intermédiaire,dev,2,1,3
-151,Tana,Développeur Symfony 5,4.0,1500000,14.220976332738882,Intermédiaire,dev,2,1,3
-152,Tana,Dev Java,4.0,1900000,14.45736497045232,Intermédiaire,dev,2,1,3
-153,Tana,Mobile Application Developer,4.0,2100000,14.557448378884015,Intermédiaire,AI,2,0,3
-154,Tana,Software engineer,4.0,2200000,14.603968372873895,Intermédiaire,dev,2,1,3
-155,Tana,Technical Support Dev,4.0,2400000,14.690979711984754,Intermédiaire,dev,2,1,3
-156,Tana,FullStack junior,4.0,2500000,14.731801689838349,Intermédiaire,dev,2,1,3
-157,Tana,Data engineer,4.0,3000000,14.914123179965662,Intermédiaire,AI,2,0,3
-158,Tana,Data Analyst,4.0,3000000,14.914123179965662,Intermédiaire,AI,2,0,3
-159,Tana,Backend senior,4.0,3000000,14.914123179965662,Intermédiaire,dev,2,1,3
-160,Tana,Senior Software Engineer,4.0,3400000,15.039286283703994,Intermédiaire,dev,2,1,3
-161,Tana,Lead Dev,4.0,3700000,15.123843647884687,Intermédiaire,dev,2,1,3
-162,Tana,Développeur PHP,4.0,4000000,15.201805169084134,Intermédiaire,dev,2,1,3
-163,Tana,Senior Software Engineer,4.0,4000000,15.201805169084134,Intermédiaire,dev,2,1,3
-164,Tana,Software Engineer,4.0,4000000,15.201805169084134,Intermédiaire,dev,2,1,3
-165,Tana,Lead Developer,4.0,4500000,15.319588176962746,Intermédiaire,dev,2,1,3
-166,Tana,Fullstack Web Developer,4.0,4800000,15.38412668421143,Intermédiaire,dev,2,1,3
-167,Tana,Dev python/devops,4.0,4800000,15.38412668421143,Intermédiaire,devops,2,2,3
-168,Tana,Fullstack dev,4.0,6000000,15.607270193858982,Intermédiaire,dev,2,1,3
-169,Faritra,Medium full stack developpee,4.0,7300000,15.803385043104912,Intermédiaire,dev,0,1,3
-170,Tana,DÉVELOPPEUR WEB / MOBILE CONFIRMÉ,4.5,4000000,15.201805169084134,Intermédiaire,AI,2,0,3
-171,Tana,Dev Symfony PHP,5.0,1500000,14.220976332738882,Intermédiaire,dev,2,1,3
-172,Tana,Tec,5.0,2100000,14.557448378884015,Intermédiaire,dev,2,1,3
-173,Tana,Tech lead,5.0,2300000,14.648420115681892,Intermédiaire,dev,2,1,3
-174,Tana,Développeur,5.0,2500000,14.731801689838349,Intermédiaire,dev,2,1,3
-175,Tana,Lead dev symfony,5.0,2800000,14.845130332288226,Intermédiaire,dev,2,1,3
-176,Tana,Senior Backend Dev Python,5.0,3000000,14.914123179965662,Intermédiaire,dev,2,1,3
-177,Tana,Senior Software Engineer,5.0,3400000,15.039286283703994,Intermédiaire,dev,2,1,3
-178,Tana,Développeur .Net senior,5.0,3480000,15.062543139106937,Intermédiaire,dev,2,1,3
-179,Tana,Senior Java Engineer,5.0,3700000,15.123843647884687,Intermédiaire,dev,2,1,3
-180,Tana,Dev symfony/react,5.0,3800000,15.150511887854474,Intermédiaire,dev,2,1,3
-181,Tana,Lead Developer,5.0,3960000,15.191754835755884,Intermédiaire,dev,2,1,3
-182,Tana,Tec,5.0,4000000,15.201805169084134,Intermédiaire,dev,2,1,3
-183,Tana,Database administrateur,5.0,4800000,15.38412668421143,Intermédiaire,devops,2,2,3
-184,Tana,Fullstack js developer,5.0,6100000,15.623799493077952,Intermédiaire,dev,2,1,3
-185,Tana,Frontend Dev,5.0,9000000,16.012735246411598,Intermédiaire,dev,2,1,3
-186,Tana,Senior dev ruby on rails,5.0,12000000,16.300417291085605,Intermédiaire,AI,2,0,3
-187,Tana,Développeur B.i,5.0,14600000,16.496532155171714,Intermédiaire,dev,2,1,3
+91,Tana,dev,2.0,2000000,14.508658238524095,Débutant,dev,2,1,0
+92,Tana,dev,2.0,2000000,14.508658238524095,Débutant,dev,2,1,0
+93,Tana,IA/ML Engineer,2.0,2000000,14.508658238524095,Débutant,AI,2,0,0
+94,Tana,dev,2.0,2000000,14.508658238524095,Débutant,dev,2,1,0
+95,Tana,dev,2.0,2100000,14.557448378884015,Débutant,dev,2,1,0
+96,Tana,dev,2.0,2300000,14.648420115681892,Débutant,dev,2,1,0
+97,Tana,dev,2.0,2500000,14.731801689838349,Débutant,dev,2,1,0
+98,Tana,dev,2.0,2800000,14.845130332288226,Débutant,dev,2,1,0
+99,Tana,IA/ML Engineer,2.0,2800000,14.845130332288226,Débutant,AI,2,0,0
+100,Tana,IA/ML Engineer,2.0,3000000,14.914123179965662,Débutant,AI,2,0,0
+101,Tana,dev,2.0,3500000,15.068273812173887,Débutant,dev,2,1,0
+102,Tana,dev,2.0,3700000,15.123843647884687,Débutant,dev,2,1,0
+103,Tana,IA/ML Engineer,2.0,4025698,15.208209118353123,Débutant,AI,2,0,0
+104,Tana,dev,2.5,1000000,13.815511557963774,Débutant,dev,2,1,0
+105,Tana,IA/ML Engineer,2.5,1800000,14.403297778421795,Débutant,AI,2,0,0
+106,Tana,dev,2.5,1800000,14.403297778421795,Débutant,dev,2,1,0
+107,Tana,Dev,2.5,2000000,14.508658238524095,Débutant,dev,2,1,0
+108,Tana,dev,2.5,2200000,14.603968372873895,Débutant,dev,2,1,0
+109,Tana,dev,2.5,3000000,14.914123179965662,Débutant,dev,2,1,0
+110,Remote,Dev,3.0,360000,12.793862088206213,Débutant,dev,1,1,0
+111,Faritra,devops,3.0,800000,13.592368256649284,Débutant,devops,0,2,0
+112,Tana,dev,3.0,825000,13.623139877437296,Débutant,dev,2,1,0
+113,Tana,dev,3.0,1200000,13.997832948091215,Débutant,dev,2,1,0
+114,Tana,dev,3.0,1400000,14.151983508870947,Débutant,dev,2,1,0
+115,Faritra,dev,3.0,1800000,14.403297778421795,Débutant,dev,0,1,0
+116,Faritra,dev,3.0,1980000,14.498607907721096,Débutant,dev,0,1,0
+117,Tana,dev,3.0,2000000,14.508658238524095,Débutant,dev,2,1,0
+118,Faritra,Dev,3.0,2000000,14.508658238524095,Débutant,dev,0,1,0
+119,Tana,Dev,3.0,2000000,14.508658238524095,Débutant,dev,2,1,0
+120,Tana,dev,3.0,2000000,14.508658238524095,Débutant,dev,2,1,0
+121,Tana,dev,3.0,2000000,14.508658238524095,Débutant,dev,2,1,0
+122,Tana,devops,3.0,2100000,14.557448378884015,Débutant,devops,2,2,0
+123,Tana,dev,3.0,2100000,14.557448378884015,Débutant,dev,2,1,0
+124,Tana,dev,3.0,2200000,14.603968372873895,Débutant,dev,2,1,0
+125,Tana,dev,3.0,2260000,14.630875813726247,Débutant,dev,2,1,0
+126,Faritra,dev,3.0,2400000,14.690979711984754,Débutant,dev,0,1,0
+127,Tana,dev,3.0,2400000,14.690979711984754,Débutant,dev,2,1,0
+128,Tana,dev,3.0,2500000,14.731801689838349,Débutant,dev,2,1,0
+129,Tana,dev,3.0,2500000,14.731801689838349,Débutant,dev,2,1,0
+130,Tana,dev,3.0,2700000,14.80876270134486,Débutant,dev,2,1,0
+131,Faritra,Dev,3.0,2800000,14.845130332288226,Débutant,dev,0,1,0
+132,Tana,dev,3.0,2800000,14.845130332288226,Débutant,dev,2,1,0
+133,Tana,devops,3.0,3000000,14.914123179965662,Débutant,devops,2,2,0
+134,Tana,dev,3.0,3000000,14.914123179965662,Débutant,dev,2,1,0
+135,Tana,Dev,3.0,3000000,14.914123179965662,Débutant,dev,2,1,0
+136,Tana,Dev,3.0,3300000,15.009433329466965,Débutant,dev,2,1,0
+137,Tana,dev,3.0,3500000,15.068273812173887,Débutant,dev,2,1,0
+138,Faritra,dev,3.0,3500000,15.068273812173887,Débutant,dev,0,1,0
+139,Tana,IA/ML Engineer,3.0,4000000,15.201805169084134,Débutant,AI,2,0,0
+140,Tana,dev,3.0,4000000,15.201805169084134,Débutant,dev,2,1,0
+141,Tana,IA/ML Engineer,3.0,4000000,15.201805169084134,Débutant,AI,2,0,0
+142,Tana,dev,3.0,4000000,15.201805169084134,Débutant,dev,2,1,0
+143,Tana,dev,3.0,4800000,15.38412668421143,Débutant,dev,2,1,0
+144,Tana,dev,3.0,5000000,15.424948670398354,Débutant,dev,2,1,0
+145,Tana,dev,3.0,5500000,15.520258832020865,Débutant,dev,2,1,0
+146,Remote,dev,3.0,5800000,15.573368647930426,Débutant,dev,1,1,0
+147,Tana,devops,3.5,2300000,14.648420115681892,Intermédiaire,devops,2,2,3
+148,Tana,dev,3.5,7000000,15.76142084987672,Intermédiaire,dev,2,1,3
+149,Tana,dev,4.0,500000,13.122365377402328,Intermédiaire,dev,2,1,3
+150,Tana,dev,4.0,1485000,14.210926003619385,Intermédiaire,dev,2,1,3
+151,Tana,dev,4.0,1500000,14.220976332738882,Intermédiaire,dev,2,1,3
+152,Tana,Dev,4.0,1900000,14.45736497045232,Intermédiaire,dev,2,1,3
+153,Tana,dev,4.0,2100000,14.557448378884015,Intermédiaire,dev,2,1,3
+154,Tana,dev,4.0,2200000,14.603968372873895,Intermédiaire,dev,2,1,3
+155,Tana,Dev,4.0,2400000,14.690979711984754,Intermédiaire,dev,2,1,3
+156,Tana,dev,4.0,2500000,14.731801689838349,Intermédiaire,dev,2,1,3
+157,Tana,IA/ML Engineer,4.0,3000000,14.914123179965662,Intermédiaire,AI,2,0,3
+158,Tana,IA/ML Engineer,4.0,3000000,14.914123179965662,Intermédiaire,AI,2,0,3
+159,Tana,dev,4.0,3000000,14.914123179965662,Intermédiaire,dev,2,1,3
+160,Tana,dev,4.0,3400000,15.039286283703994,Intermédiaire,dev,2,1,3
+161,Tana,dev,4.0,3700000,15.123843647884687,Intermédiaire,dev,2,1,3
+162,Tana,dev,4.0,4000000,15.201805169084134,Intermédiaire,dev,2,1,3
+163,Tana,dev,4.0,4000000,15.201805169084134,Intermédiaire,dev,2,1,3
+164,Tana,dev,4.0,4000000,15.201805169084134,Intermédiaire,dev,2,1,3
+165,Tana,dev,4.0,4500000,15.319588176962746,Intermédiaire,dev,2,1,3
+166,Tana,dev,4.0,4800000,15.38412668421143,Intermédiaire,dev,2,1,3
+167,Tana,Dev,4.0,4800000,15.38412668421143,Intermédiaire,dev,2,1,3
+168,Tana,dev,4.0,6000000,15.607270193858982,Intermédiaire,dev,2,1,3
+169,Faritra,dev,4.0,7300000,15.803385043104912,Intermédiaire,dev,0,1,3
+170,Tana,dev,4.5,4000000,15.201805169084134,Intermédiaire,dev,2,1,3
+171,Tana,Dev,5.0,1500000,14.220976332738882,Intermédiaire,dev,2,1,3
+172,Tana,devops,5.0,2100000,14.557448378884015,Intermédiaire,devops,2,2,3
+173,Tana,dev,5.0,2300000,14.648420115681892,Intermédiaire,dev,2,1,3
+174,Tana,dev,5.0,2500000,14.731801689838349,Intermédiaire,dev,2,1,3
+175,Tana,dev,5.0,2800000,14.845130332288226,Intermédiaire,dev,2,1,3
+176,Tana,dev,5.0,3000000,14.914123179965662,Intermédiaire,dev,2,1,3
+177,Tana,dev,5.0,3400000,15.039286283703994,Intermédiaire,dev,2,1,3
+178,Tana,dev,5.0,3480000,15.062543139106937,Intermédiaire,dev,2,1,3
+179,Tana,dev,5.0,3700000,15.123843647884687,Intermédiaire,dev,2,1,3
+180,Tana,dev,5.0,3800000,15.150511887854474,Intermédiaire,dev,2,1,3
+181,Tana,dev,5.0,3960000,15.191754835755884,Intermédiaire,dev,2,1,3
+182,Tana,devops,5.0,4000000,15.201805169084134,Intermédiaire,devops,2,2,3
+183,Tana,IA/ML Engineer,5.0,4800000,15.38412668421143,Intermédiaire,AI,2,0,3
+184,Tana,dev,5.0,6100000,15.623799493077952,Intermédiaire,dev,2,1,3
+185,Tana,dev,5.0,9000000,16.012735246411598,Intermédiaire,dev,2,1,3
+186,Tana,dev,5.0,12000000,16.300417291085605,Intermédiaire,dev,2,1,3
+187,Tana,IA/ML Engineer,5.0,14600000,16.496532155171714,Intermédiaire,AI,2,0,3
 188,Tana,Dev,5.0,20000000,16.811242881518265,Intermédiaire,dev,2,1,3
-189,Tana,Lead developer,5.5,6169090,15.635062059258209,Expérimenté,dev,2,1,2
-190,Tana,Fullstack junior,6.0,700000,13.45883704259595,Expérimenté,dev,2,1,2
-191,Tana,Designer,6.0,1300000,14.077875591662238,Expérimenté,dev,2,1,2
-192,Tana,Senior Software Engineer,6.0,2450000,14.711598990684092,Expérimenté,dev,2,1,2
-193,Tana,Technical project manager PHP,6.0,2500000,14.731801689838349,Expérimenté,dev,2,1,2
-194,Tana,Chef de projet,6.0,2700000,14.80876270134486,Expérimenté,dev,2,1,2
-195,Tana,Senior développeur,6.0,3300000,15.009433329466965,Expérimenté,dev,2,1,2
+189,Tana,dev,5.5,6169090,15.635062059258209,Expérimenté,dev,2,1,2
+190,Tana,dev,6.0,700000,13.45883704259595,Expérimenté,dev,2,1,2
+191,Tana,dev,6.0,1300000,14.077875591662238,Expérimenté,dev,2,1,2
+192,Tana,dev,6.0,2450000,14.711598990684092,Expérimenté,dev,2,1,2
+193,Tana,dev,6.0,2500000,14.731801689838349,Expérimenté,dev,2,1,2
+194,Tana,dev,6.0,2700000,14.80876270134486,Expérimenté,dev,2,1,2
+195,Tana,dev,6.0,3300000,15.009433329466965,Expérimenté,dev,2,1,2
 196,Tana,Frontend dev,6.0,6000000,15.607270193858982,Expérimenté,dev,2,1,2
 197,Faritra,Backend dev,6.0,6500000,15.687312888712007,Expérimenté,dev,0,1,2
-198,Tana,Software Engineer,6.0,6700000,15.717618233614914,Expérimenté,dev,2,1,2
-199,Tana,Senior Software Engineer,6.0,7000000,15.76142084987672,Expérimenté,dev,2,1,2
-200,Faritra,Senior Software Engineer,6.0,14000000,16.454567959008102,Expérimenté,dev,0,1,2
-201,Tana,Webmaster,7.0,3000000,14.914123179965662,Expérimenté,dev,2,1,2
-202,Tana,IT Manager,7.0,4000000,15.201805169084134,Expérimenté,dev,2,1,2
-203,Tana,Développeur web Fullstack et Consultant Indépendant,7.0,4800000,15.38412668421143,Expérimenté,dev,2,1,2
-204,Tana,Chef de projet,7.0,5750000,15.564710586686562,Expérimenté,dev,2,1,2
+198,Tana,dev,6.0,6700000,15.717618233614914,Expérimenté,dev,2,1,2
+199,Tana,dev,6.0,7000000,15.76142084987672,Expérimenté,dev,2,1,2
+200,Faritra,dev,6.0,14000000,16.454567959008102,Expérimenté,dev,0,1,2
+201,Tana,dev,7.0,3000000,14.914123179965662,Expérimenté,dev,2,1,2
+202,Tana,dev,7.0,4000000,15.201805169084134,Expérimenté,dev,2,1,2
+203,Tana,dev,7.0,4800000,15.38412668421143,Expérimenté,dev,2,1,2
+204,Tana,dev,7.0,5750000,15.564710586686562,Expérimenté,dev,2,1,2
 205,Tana,Fullstack dev,7.0,7920000,15.884901890053227,Expérimenté,dev,2,1,2
-206,Tana,Tech Lead,7.0,9500000,16.066802461833923,Expérimenté,dev,2,1,2
-207,Tana,Fullstack JS Developer,7.0,10500000,16.166885910365842,Expérimenté,dev,2,1,2
-208,Remote,Dev Mobile android/IOS,7.0,22000000,16.906553056777135,Expérimenté,AI,1,0,2
-209,Tana,Developpeur backend Junior,8.0,1600000,14.285514812209815,Expérimenté,dev,2,1,2
-210,Tana,Product Owner,8.0,4000000,15.201805169084134,Expérimenté,dev,2,1,2
-211,Tana,Senior Software Engineer,8.0,7000000,15.76142084987672,Expérimenté,dev,2,1,2
-212,Tana,Développeur/ intégrateur web (PHP),8.0,10000000,16.118095750958314,Expérimenté,dev,2,1,2
-213,Tana,Back Dev senior,9.0,2500000,14.731801689838349,Expérimenté,dev,2,1,2
-214,Tana,Fullstack Dev,9.0,4600000,15.341567078850604,Expérimenté,dev,2,1,2
-215,Tana,Directeur technique,9.0,6000000,15.607270193858982,Expérimenté,dev,2,1,2
-216,Tana,IT Project Manager,10.0,3000000,14.914123179965662,Expérimenté,dev,2,1,2
-217,Tana,Administrateur Systèmes et Réseaux,10.0,3000000,14.914123179965662,Expérimenté,devops,2,2,2
-218,Tana,senior front-end dev,10.0,3500000,15.068273812173887,Expérimenté,dev,2,1,2
-219,Tana,Responsable informatique (data engineer),10.0,5000000,15.424948670398354,Expérimenté,AI,2,0,2
-220,Tana,Lead technique,10.0,5600000,15.53827733427679,Expérimenté,dev,2,1,2
-221,Tana,Senior wordpress developper/ SEO expert,10.0,7300000,15.803385043104912,Expérimenté,dev,2,1,2
-222,Tana,Senior Dev,10.0,11000000,16.213405921671733,Expérimenté,dev,2,1,2
-223,Remote,Senior Software Engineer,11.0,37000000,17.426428497635523,Expert,dev,1,1,1
-224,Tana,Responsable infrastructure,12.0,3700000,15.123843647884687,Expert,devops,2,2,1
-225,Tana,Développeur Windev,12.0,7800000,15.86963441986494,Expert,dev,2,1,1
-226,Tana,Programmeur,14.0,3600000,15.096444681204078,Expert,dev,2,1,1
-227,Tana,Senior consultant fullstack,16.0,15000000,16.52356082573315,Expert,dev,2,1,1
+206,Tana,dev,7.0,9500000,16.066802461833923,Expérimenté,dev,2,1,2
+207,Tana,dev,7.0,10500000,16.166885910365842,Expérimenté,dev,2,1,2
+208,Remote,Dev,7.0,22000000,16.906553056777135,Expérimenté,dev,1,1,2
+209,Tana,Dev,8.0,1600000,14.285514812209815,Expérimenté,dev,2,1,2
+210,Tana,dev,8.0,4000000,15.201805169084134,Expérimenté,dev,2,1,2
+211,Tana,dev,8.0,7000000,15.76142084987672,Expérimenté,dev,2,1,2
+212,Tana,dev,8.0,10000000,16.118095750958314,Expérimenté,dev,2,1,2
+213,Tana,dev,9.0,2500000,14.731801689838349,Expérimenté,dev,2,1,2
+214,Tana,dev,9.0,4600000,15.341567078850604,Expérimenté,dev,2,1,2
+215,Tana,dev,9.0,6000000,15.607270193858982,Expérimenté,dev,2,1,2
+216,Tana,dev,10.0,3000000,14.914123179965662,Expérimenté,dev,2,1,2
+217,Tana,devops,10.0,3000000,14.914123179965662,Expérimenté,devops,2,2,2
+218,Tana,dev,10.0,3500000,15.068273812173887,Expérimenté,dev,2,1,2
+219,Tana,IA/ML Engineer,10.0,5000000,15.424948670398354,Expérimenté,AI,2,0,2
+220,Tana,dev,10.0,5600000,15.53827733427679,Expérimenté,dev,2,1,2
+221,Tana,dev,10.0,7300000,15.803385043104912,Expérimenté,dev,2,1,2
+222,Tana,dev,10.0,11000000,16.213405921671733,Expérimenté,dev,2,1,2
+223,Remote,dev,11.0,37000000,17.426428497635523,Expert,dev,1,1,1
+224,Tana,devops,12.0,3700000,15.123843647884687,Expert,devops,2,2,1
+225,Tana,dev,12.0,7800000,15.86963441986494,Expert,dev,2,1,1
+226,Tana,dev,14.0,3600000,15.096444681204078,Expert,dev,2,1,1
+227,Tana,dev,16.0,15000000,16.52356082573315,Expert,dev,2,1,1

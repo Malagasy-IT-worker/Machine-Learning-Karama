@@ -1,0 +1,23 @@
+name: deploy dev
+run-name: pipeline declanched by ${{ github.actor }} on branch ${{ github.ref }}.
+on:
+  push:
+    branches:
+      - main
+jobs:
+  deploy-dev:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Deploy to Dev server
+        uses: easingthemes/ssh-deploy@main
+        with:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          ARGS: "-rlgoDzvc -i"
+          SOURCE: "docker-compose.yaml"
+          REMOTE_HOST: ${{ vars.REMOTE_HOST }}
+          REMOTE_USER: ${{ vars.REMOTE_USER }}
+          TARGET: "/home/${{ vars.REMOTE_USER }}/traefik/ml_karama/"
+          SCRIPT: |
+            docker-compose -f "/home/${{ vars.REMOTE_USER }}/traefik/ml_karama/docker-compose.yaml" --profile prod down
+            docker-compose -f "/home/${{ vars.REMOTE_USER }}/traefik/ml_karama/docker-compose.yaml" --profile prod up -d

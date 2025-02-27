@@ -1,27 +1,29 @@
 """
-    This file contains the code to scrape the data from the google sheet in the drive of the owner
-    This is optional because we can download it directly as a coma separated value from the gsheets.
+    This file contains the code to filter data from Madagascar only
+    and to separate the train and test data.
 """
 
-import gspread 
 import pandas as pd
-from oauth2client.service_account import ServiceAccountCredentials
+import os
+from sklearn.model_selection import train_test_split
 
-## Définir les permissions
-scope = ["https://spreadsheets.google.com/feeds", "https://www.googleapis.com/auth/drive"]
+def extract_data():
 
-## Charger les identifiants (télécharge ton fichier JSON depuis Google Cloud Console)
-creds = ServiceAccountCredentials.from_json_keyfile_name("credentials.json", scope)
-client = gspread.authorize(creds)
+    df = pd.read_csv("data/Karama (réponses) - Réponses _cleaned_.csv")
 
-#URL du gsheet 'karama'
-spreadsheet_url = "https://docs.google.com/spreadsheets/d/1xy90IapIRhTUjDMRRJjqjihPFjvfK9HbjzWCYDpLmP8/edit#gid=1951714951"
-## Récupérer le "data cleaned réponses" Merci Aina ^-^
-sheet = client.open_by_url(spreadsheet_url).sheet1
+    #Firenena Hitoerana is Madagascar
+    df = df[df['Firenena Hitoerana'] == 'Madagascar']
 
-## Récupérer les données sous forme de DataFrame
-data = sheet.get_all_records()
-df = pd.DataFrame(data)
+    train_data, test_data = train_test_split(df, test_size=0.2, random_state=17)
 
-df.to_csv("data/Karama (réponses) - Réponses _cleaned_.csv", index=False)
-print("Données sauvegardées dans data/train.csv avec succès !")
+    if not os.path.exists("data"):
+        os.mkdir("data")
+
+    #Save data
+    train_data.to_csv("data/train.csv", index=False)
+    test_data.to_csv("data/test.csv", index=False)
+
+    print("Extracted and saved data successfully")
+
+if __name__ == "__main__":
+    extract_data()
