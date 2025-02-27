@@ -1,15 +1,51 @@
 services:
   api_prod:
+    image: ankoayfeno/ml_karama:latest
     profiles:
       - prod
+    volumes:
+      - ./logs.log:/app/logs.log
+    restart: unless-stopped
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.api-prod.entrypoints=http"
+      - "traefik.http.routers.api-prod.rule=Host(`api-karama.brocoding.icu`)"
+      - "traefik.http.middlewares.redirect-to-https.redirectscheme.scheme=https"
+      - "traefik.http.routers.api-prod.middlewares=redirect-to-https"
+      - "traefik.http.routers.api-prod-secure.entrypoints=https"
+      - "traefik.http.routers.api-prod-secure.rule=Host(`api-karama.brocoding.icu`)"
+      - "traefik.http.routers.api-prod-secure.tls=true"
+      - "traefik.http.routers.api-prod-secure.tls.certresolver=http"
+      - "traefik.http.services.api-prod.loadbalancer.server.port=8080"
+
+  api_dev:
+    profiles:
+      - dev
     image: ankoayfeno/ml_karama:latest
     volumes:
       - ./logs.log:/app/logs.log
     restart: unless-stopped
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.api-dev.entrypoints=http"
+      - "traefik.http.routers.api-dev.rule=Host(`dev-api-karama.brocoding.icu`)"
+      - "traefik.http.middlewares.redirect-to-https.redirectscheme.scheme=https"
+      - "traefik.http.routers.api-dev.middlewares=redirect-to-https"
+      - "traefik.http.routers.api-dev-secure.entrypoints=https"
+      - "traefik.http.routers.api-dev-secure.rule=Host(`dev-api-karama.brocoding.icu`)"
+      - "traefik.http.routers.api-dev-secure.tls=true"
+      - "traefik.http.routers.api-dev-secure.tls.certresolver=http"
+      - "traefik.http.services.api-dev.loadbalancer.server.port=8080"
 
   api_local:
-    image: ml_karama
+    build:
+      context: .
+      dockerfile: Dockerfile
     ports:
       - "8080:8080"
     volumes:
       - ./logs.log:/app/logs.log
+
+networks:
+  proxy:
+    external: true
