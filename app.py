@@ -42,7 +42,7 @@ async def predict(input_data: InputData):
 
     company_encoded = company_mapping.get(input_data.company, -1)
     title_encoded = title_mapping.get(categorize_title(input_data.title), -1)
-    exp_category = pd.cut([input_data.year_experience], bins=[0, 1, 3, 5, 10, 100], labels=['Junior', 'Débutant', 'Intermédiaire', 'Expérimenté', 'Expert'])[0]
+    exp_category = pd.cut([input_data.year_experience], bins=[0, 1, 3, 5, 10, 100], labels=['Junior', 'Débutant', 'Intermédiaire', 'Expérimenté', 'Expert'],  include_lowest=True)[0]
     exp_encoded = exp_mapping.get(exp_category, -1)
 
     if -1 in [company_encoded, title_encoded, exp_encoded]:
