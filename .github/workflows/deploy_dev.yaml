@@ -7,7 +7,7 @@ on:
       - develop
   workflow_run:
     workflows:
-      - "build docker images"
+      - build docker images
     types:
       - completed
 jobs:
