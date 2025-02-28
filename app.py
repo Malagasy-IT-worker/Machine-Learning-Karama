@@ -1,10 +1,20 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
+from fastapi.middleware.cors import CORSMiddleware
 import pandas as pd
 import numpy as np
 import joblib
 
 app = FastAPI()
+
+# Autoriser toutes les origines, méthodes et headers
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # Permet toutes les origines
+    allow_credentials=True,
+    allow_methods=["*"],  # Permet toutes les méthodes HTTP (GET, POST, etc.)
+    allow_headers=["*"],  # Permet tous les headers
+)
 
 class InputData(BaseModel):
     company: str
