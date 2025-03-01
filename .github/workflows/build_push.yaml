@@ -1,5 +1,5 @@
 name: build docker images
-run-name: pipeline declanched by ${{ github.actor }} on branch ${{ github.ref }}.
+run-name: build docker images pipeline declanched by ${{ github.actor }} on branch ${{ github.ref }}.
 on:
   push:
     branches:

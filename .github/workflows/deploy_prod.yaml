@@ -1,5 +1,5 @@
-name: deploy dev
-run-name: pipeline declanched by ${{ github.actor }} on branch ${{ github.ref }}.
+name: deploy prod
+run-name: deploy prod pipeline declanched by ${{ github.actor }} on branch ${{ github.ref }}.
 on:
   push:
     branches:
