@@ -2,9 +2,6 @@ name: deploy dev
 run-name: deploy dev pipeline declanched by ${{ github.actor }} on branch ${{ github.ref }}
 
 on:
-  push:
-    branches:
-      - develop
   workflow_run:
     workflows:
       - build docker images
