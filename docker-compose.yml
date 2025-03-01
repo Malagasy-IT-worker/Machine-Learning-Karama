@@ -1,6 +1,6 @@
 services:
   api_prod:
-    image: ankoayfeno/ml_karama:23
+    image: ankoayfeno/ml_karama:28
     profiles:
       - prod
     volumes:
@@ -23,7 +23,7 @@ services:
   api_dev:
     profiles:
       - dev
-    image: ankoayfeno/ml_karama:23
+    image: ankoayfeno/ml_karama:28
     volumes:
       - ./logs.log:/app/logs.log
     restart: unless-stopped
