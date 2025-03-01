@@ -24,19 +24,23 @@ jobs:
         with:
           username: ${{ vars.DOCKERHUB_USERNAME }}
           password: ${{ vars.DOCKERHUB_TOKEN }}
-      - name: Set up QEMU #simmilate multi architecture i386/i686/armv6/armv7(32 bits),x86_64/amd64/arm64/aarch64(64bits), ppc64le(ibm server),s390x(mainframs ibm), ...
+
+      - name: Set up QEMU # Simule multi-architecture
         uses: docker/setup-qemu-action@v3
-      - name: Set up Docker Buildx #use buildx to build docker images multiarchitecture
+
+      - name: Set up Docker Buildx # Utilise Buildx pour build multi-arch
         uses: docker/setup-buildx-action@v3
-      - name: set short sha
+
+      - name: Set short sha
         id: hex
         run: echo "HEX_TAG=$(openssl rand -hex 4)" >> $GITHUB_ENV
+
       - name: Build and push
         uses: docker/build-push-action@v6
         with:
           push: true
-          context: ./${{ matrix.image }}
-          file: ${{ matrix.iamge }}/Dockerfile
+          context: ${{ matrix.image }}
+          file: ${{ matrix.image }}/Dockerfile
           tags: |
             ankoayfeno/ml_karama-${{ matrix.image }}:${{ env.HEX_TAG}}
-            ankoayfeno/ml_karama:latest
+            ankoayfeno/ml_karama-${{ matrix.image }}:latest
