@@ -10,6 +10,8 @@ on:
       - build docker images
     types:
       - completed
+    branch:
+      - develop
 jobs:
   deploy-dev:
     runs-on: ubuntu-latest
