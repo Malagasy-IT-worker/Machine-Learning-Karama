@@ -9,8 +9,6 @@ interface Job {
   year_experience: number;
 }
 
-
-
 export default function Home() {
   const [company, setCompany] = useState<string>("");
   const [title, setTitle] = useState<string>("");
@@ -24,11 +22,10 @@ export default function Home() {
   const [predicted_salary, setFirstSalary] = useState<Job[]>([]);
   const [status, setStatus] = useState<string>("low");
 
-
   // Récupérer les offres d'emploi
   const fetchJobs = async () => {
     try {
-      const response = await axios.get("http://192.168.88.53:8080");
+      const response = await axios.get("http://localhost:8080");
       setJobs(response.data);
     } catch (error) {
       console.error("Error fetching jobs:", error);
@@ -41,46 +38,52 @@ export default function Home() {
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    const newJob = { company, title, year_experience: year_experience};
+    const newJob = { company, title, year_experience: year_experience };
 
-    
     try {
-      const response = await axios.post("http://192.168.88.53:8080/predict", newJob);
+      const response = await axios.post(
+        "http://localhost:8080/predict",
+        newJob,
+      );
       const predictedSalary = response.data.predicted_salary;
-    
-      setSalary(predictedSalary);  
-      setLastData(response.data)   
-      setFirstSalary(predictedSalary)
-      
-      
+
+      setSalary(predictedSalary);
+      setLastData(response.data);
+      setFirstSalary(predictedSalary);
     } catch (error) {
       console.error("Error creating job:", error);
     }
   };
-  
-  
+
   const handleSalaryFeedback = (feedback: string) => {
-    setShowModal(true); 
+    setShowModal(true);
   };
 
   const handleModalSubmit = async () => {
     setSalaryFeedback(userSalary);
     setShowModal(false);
 
-  
     console.log("Le nouveau salaire est : " + new_salary);
-    const dataApi = {company, title, year_experience, predicted_salary, status, new_salary}
+    const dataApi = {
+      company,
+      title,
+      year_experience,
+      predicted_salary,
+      status,
+      new_salary,
+    };
 
     try {
-      const response = await axios.post("http://192.168.88.53:8080/feedback", dataApi);      
-      console.log(response)
+      const response = await axios.post(
+        "http://localhost:8080/feedback",
+        dataApi,
+      );
+      console.log(response);
     } catch (error) {
       console.error("Error creating job:", error);
     }
-    console.log(dataApi)
+    console.log(dataApi);
   };
-
-
 
   return (
     <div className="min-h-screen bg-gray-100 flex justify-center items-center p-4">
@@ -93,7 +96,10 @@ export default function Home() {
         <form onSubmit={handleSubmit} className="space-y-6">
           {/* Sélection du company */}
           <div>
-            <label className="block text-sm font-medium text-gray-700" htmlFor="company">
+            <label
+              className="block text-sm font-medium text-gray-700"
+              htmlFor="company"
+            >
               Orinasa
             </label>
             <select
@@ -112,7 +118,10 @@ export default function Home() {
 
           {/* Sélection du title */}
           <div>
-            <label className="block text-sm font-medium text-gray-700" htmlFor="title">
+            <label
+              className="block text-sm font-medium text-gray-700"
+              htmlFor="title"
+            >
               Asa
             </label>
             <select
@@ -131,7 +140,10 @@ export default function Home() {
 
           {/* Sélection des années d'expérience */}
           <div>
-            <label className="block text-sm font-medium text-gray-700" htmlFor="yearExperience">
+            <label
+              className="block text-sm font-medium text-gray-700"
+              htmlFor="yearExperience"
+            >
               Taona niasana
             </label>
             <input
@@ -156,24 +168,24 @@ export default function Home() {
         <div className="mt-8">
           {salary > 0 && (
             <div className="bg-gray-50 p-4 rounded-lg shadow-md mb-4">
-              <p className="text-gray-600 text-center">{salary.toLocaleString('es-ES')} Ar</p>
+              <p className="text-gray-600 text-center">
+                {salary.toLocaleString("es-ES")} Ar
+              </p>
 
               {/* Demande de feedback sur le salaire */}
               <p className="text-center mt-4">Do you think this salary is:</p>
               <div className="flex justify-center space-x-4 mt-2">
                 <button
-                  onClick={() => handleSalaryFeedback('Low Salary')}
+                  onClick={() => handleSalaryFeedback("Low Salary")}
                   className="px-4 py-2 bg-red-600 text-white rounded-md hover:bg-red-700"
                 >
                   Low
                 </button>
-                <button
-                                    className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-green-700"
-                >
+                <button className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-green-700">
                   Normal
                 </button>
                 <button
-                  onClick={() => handleSalaryFeedback('High Salary')}
+                  onClick={() => handleSalaryFeedback("High Salary")}
                   className="px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700"
                 >
                   High
@@ -188,7 +200,9 @@ export default function Home() {
       {showModal && (
         <div className="fixed inset-0 bg-gray-500 bg-opacity-75 flex justify-center items-center">
           <div className="bg-white p-6 rounded-lg shadow-lg max-w-sm w-full">
-            <h2 className="text-xl font-semibold text-center mb-4">Enter your expected salary</h2>
+            <h2 className="text-xl font-semibold text-center mb-4">
+              Enter your expected salary
+            </h2>
             <input
               type="number"
               className="w-full px-4 py-2 border border-gray-300 rounded-md"
@@ -217,4 +231,3 @@ export default function Home() {
     </div>
   );
 }
-
