@@ -207,7 +207,7 @@ export default function Home() {
               type="number"
               className="w-full px-4 py-2 border border-gray-300 rounded-md"
               value={userSalary}
-              onChange={(e) => setUserSalary(e.target.value)}
+              onChange={(e) => setUserSalary(Number(e.target.value))}
               placeholder="Enter salary"
               required
             />
