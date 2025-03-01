@@ -1,7 +1,9 @@
 name: build docker images
 run-name: build docker images pipeline declanched by ${{ github.actor }} on branch ${{ github.ref }}.
 on:
-  - push
+  push:
+    branches:
+      - develop
 jobs:
   docker-build-and-push:
     runs-on: ubuntu-latest
