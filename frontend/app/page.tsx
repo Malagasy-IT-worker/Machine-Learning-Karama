@@ -22,10 +22,12 @@ export default function Home() {
   const [predicted_salary, setFirstSalary] = useState<Job[]>([]);
   const [status, setStatus] = useState<string>("low");
 
+  const API_URL = process.env.API_URL;
+
   // Récupérer les offres d'emploi
   const fetchJobs = async () => {
     try {
-      const response = await axios.get("http://localhost:8080");
+      const response = await axios.get(`${API_URL}`);
       setJobs(response.data);
     } catch (error) {
       console.error("Error fetching jobs:", error);
@@ -41,10 +43,7 @@ export default function Home() {
     const newJob = { company, title, year_experience: year_experience };
 
     try {
-      const response = await axios.post(
-        "http://localhost:8080/predict",
-        newJob,
-      );
+      const response = await axios.post(`${API_URL}/predict`, newJob);
       const predictedSalary = response.data.predicted_salary;
 
       setSalary(predictedSalary);
@@ -74,10 +73,7 @@ export default function Home() {
     };
 
     try {
-      const response = await axios.post(
-        "http://localhost:8080/feedback",
-        dataApi,
-      );
+      const response = await axios.post(`${API_URL}/feedback`, dataApi);
       console.log(response);
     } catch (error) {
       console.error("Error creating job:", error);
