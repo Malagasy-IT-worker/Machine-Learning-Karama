@@ -1,7 +1,10 @@
 name: deploy prod
-run-name: deploy prod pipeline declanched by ${{ github.actor }} on branch ${{ github.ref }}.
+run-name: deploy prod by ${{ github.actor }} on branch ${{ github.ref }}.
 on:
   push:
+    branches:
+      - main
+  pull_request:
     branches:
       - main
 jobs:
