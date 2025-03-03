@@ -1,5 +1,5 @@
 name: Build Docker Images
-run-name: Build Docker Images pipeline triggered by ${{ github.actor }} on branch ${{ github.ref }}.
+run-name: Build Docker Images pipeline triggered by ${{ github.actor }} on branch ${{ github.ref }}
 
 on:
   push:
@@ -10,8 +10,18 @@ on:
       - develop
 
 jobs:
+  generate-tag:
+    runs-on: ubuntu-latest
+    outputs:
+      hex_tag: ${{ steps.generate.outputs.hex_tag }}
+    steps:
+      - name: Generate build tag
+        id: generate
+        run: echo "::set-output name=hex_tag::$(date +%Y%m%d%H%M%S)-$(git rev-parse --short HEAD)"
+
   build-and-push-api:
     runs-on: ubuntu-latest
+    needs: generate-tag
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -25,37 +35,28 @@ jobs:
       - name: Set up Docker tools
         uses: docker/setup-buildx-action@v3
 
-      - name: Cache Docker layers
+      - name: Cache Docker layers for API
         uses: actions/cache@v3
         with:
           path: /tmp/.buildx-cache-api
           key: api-cache-${{ runner.os }}-${{ hashFiles('api/Dockerfile', 'api/requirements.txt') }}
 
-      - name: Generate build tag
-        run: echo "HEX_TAG=$(date +%Y%m%d%H%M%S)-$(git rev-parse --short HEAD)" >> $GITHUB_ENV
-
-      - name: Build and test API
+      - name: Build and push API image
         uses: docker/build-push-action@v6
         with:
           context: .
           file: Dockerfile
-          tags: ankoayfeno/api_ml_karama:${{ env.HEX_TAG }}
+          push: true
+          tags: |
+            ankoayfeno/api_ml_karama:${{ needs.generate-tag.outputs.hex_tag }}
+            ankoayfeno/api_ml_karama:latest
           cache-from: type=local,src=/tmp/.buildx-cache-api
           cache-to: type=local,dest=/tmp/.buildx-cache-api,mode=max
           target: prod
-          load: true
-
-      - name: Push API image
-        uses: docker/build-push-action@v6
-        with:
-          push: true
-          tags: |
-            ankoayfeno/api_ml_karama:${{ env.HEX_TAG }}
-            ankoayfeno/api_ml_karama:latest
 
   build-and-push-frontend:
     runs-on: ubuntu-latest
-    needs: build-and-push-api
+    needs: generate-tag
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -69,32 +70,21 @@ jobs:
       - name: Set up Docker tools
         uses: docker/setup-buildx-action@v3
 
-      - name: Cache frontend layers
+      - name: Cache Docker layers for frontend
         uses: actions/cache@v3
         with:
           path: /tmp/.buildx-cache-frontend
           key: frontend-cache-${{ runner.os }}-${{ hashFiles('frontend/Dockerfile', 'frontend/package.json') }}
 
-      - name: Generate build tag
-        run: echo "HEX_TAG=$(date +%Y%m%d%H%M%S)-$(git rev-parse --short HEAD)" >> $GITHUB_ENV
-
-      - name: Build frontend
+      - name: Build and push frontend image
         uses: docker/build-push-action@v6
         with:
           context: frontend
           file: frontend/Dockerfile
+          push: true
           tags: |
-            ankoayfeno/ml_karama:${{ env.HEX_TAG }}
+            ankoayfeno/ml_karama:${{ needs.generate-tag.outputs.hex_tag }}
             ankoayfeno/ml_karama:latest
           cache-from: type=local,src=/tmp/.buildx-cache-frontend
           cache-to: type=local,dest=/tmp/.buildx-cache-frontend,mode=max
           target: prod
-          load: true
-
-      - name: Push frontend image
-        uses: docker/build-push-action@v6
-        with:
-          push: true
-          tags: |
-            ankoayfeno/ml_karama:${{ env.HEX_TAG }}
-            ankoayfeno/ml_karama:latest
