@@ -12,11 +12,6 @@ COPY . .
 
 RUN chmod +x ./entrypoint.sh
 
-RUN addgroup -g 1001 -S nodejs && \
-    adduser -S nextjs -u 1001
-
-USER nextjs
-
 CMD ["./entrypoint.sh"]
 
 

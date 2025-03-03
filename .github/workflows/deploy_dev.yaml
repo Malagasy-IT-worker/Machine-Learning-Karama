@@ -28,7 +28,4 @@ jobs:
           TARGET: "/home/${{ vars.REMOTE_USER }}/traefik/ml_karama/"
           SCRIPT_AFTER: |
             docker-compose -f "/home/${{ vars.REMOTE_USER }}/traefik/ml_karama/docker-compose.yml" --profile dev pull && \
-            docker-compose -f "/home/${{ vars.REMOTE_USER }}/traefik/ml_karama/docker-compose.yml" --profile dev down
-
-            docker-compose -f "/home/${{ vars.REMOTE_USER }}/traefik/ml_karama/docker-compose.yml" --profile dev pull && \
             docker-compose -f "/home/${{ vars.REMOTE_USER }}/traefik/ml_karama/docker-compose.yml" --profile dev up -d

@@ -43,6 +43,7 @@ services:
 
   front_prod:
     image: ankoayfeno/ml_karama:latest
+    profiles:
       - prod
     restart: unless-stopped
     environment:
