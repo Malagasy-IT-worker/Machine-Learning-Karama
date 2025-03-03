@@ -47,7 +47,7 @@ services:
       - prod
     restart: unless-stopped
     environment:
-      - API_URL=https://api-karama.brocoding.icu
+      - NEXT_PUBLIC_API_URL=https://api-karama.brocoding.icu
     networks:
       - proxy
     labels:
@@ -68,7 +68,7 @@ services:
       - dev
     restart: unless-stopped
     environment:
-      - API_URL=https://dev-api-karama.brocoding.icu
+      - NEXT_PUBLIC_API_URL=https://dev-api-karama.brocoding.icu
     networks:
       - proxy
     labels:
@@ -98,7 +98,7 @@ services:
     profiles:
       - local
     environment:
-      - API_URL=http://api_local:8080
+      - NEXT_PUBLIC_API_URL=http://api_local:8080
     build:
       context: front
       dockerfile: Dockerfile

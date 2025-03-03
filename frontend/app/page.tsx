@@ -22,7 +22,7 @@ export default function Home() {
   const [predicted_salary, setFirstSalary] = useState<Job[]>([]);
   const [status, setStatus] = useState<string>("low");
 
-  const API_URL = process.env.API_URL;
+  const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
   // Récupérer les offres d'emploi
   const fetchJobs = async () => {
