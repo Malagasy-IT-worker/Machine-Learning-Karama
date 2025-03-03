@@ -4,7 +4,7 @@ WORKDIR /app
 COPY package*.json ./
 EXPOSE 3000
 
-FROM base as builder
+FROM base as prod
 WORKDIR /app
 COPY package*.json ./
 RUN npm ci
