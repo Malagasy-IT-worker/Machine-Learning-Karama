@@ -39,8 +39,8 @@ jobs:
       - name: Build and push API image
         uses: docker/build-push-action@v6
         with:
-          context: api
-          file: api/Dockerfile
+          context: .
+          file: Dockerfile
           push: true
           tags: |
             ankoayfeno/api_ml_karama:${{ needs.generate-tag.outputs.hex_tag }}
