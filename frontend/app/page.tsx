@@ -23,7 +23,7 @@ export default function Home() {
   const [status, setStatus] = useState<string>("low");
 
   const API_URL = process.env.NEXT_PUBLIC_API_URL;
-
+  console.log(API_URL);
   // Récupérer les offres d'emploi
   const fetchJobs = async () => {
     try {
