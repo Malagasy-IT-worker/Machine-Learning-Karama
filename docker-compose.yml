@@ -42,8 +42,7 @@ services:
       - "traefik.http.services.api-dev.loadbalancer.server.port=8080"
 
   front_prod:
-    image: ankoayfeno/ml_karama
-    profiles:
+    image: ankoayfeno/ml_karama:latest
       - prod
     restart: unless-stopped
     environment:
@@ -63,7 +62,7 @@ services:
       - "traefik.http.services.api-prod.loadbalancer.server.port=3000"
 
   front_dev:
-    image: ankoayfeno/ml_karama
+    image: ankoayfeno/ml_karama:latest
     profiles:
       - dev
     restart: unless-stopped
@@ -98,9 +97,9 @@ services:
     profiles:
       - local
     environment:
-      - NEXT_PUBLIC_API_URL=http://api_local:8080
+      - NEXT_PUBLIC_API_URL=https://dev-api-karama.brocoding.icu
     build:
-      context: front
+      context: frontend
       dockerfile: Dockerfile
       target: local
     ports:
