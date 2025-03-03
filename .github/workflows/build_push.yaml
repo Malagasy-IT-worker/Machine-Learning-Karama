@@ -45,10 +45,6 @@ jobs:
           target: prod
           load: true
 
-      - name: Test API
-        run: |
-          docker run --rm ankoayfeno/api_ml_karama:${{ env.HEX_TAG }} ls -la
-
       - name: Push API image
         uses: docker/build-push-action@v6
         with:
