@@ -24,7 +24,7 @@ export default function Home() {
 
   const API_URL = process.env.NEXT_PUBLIC_API_URL;
   console.log(API_URL);
-  // Récupérer les offres d'emploi
+
   const fetchJobs = async () => {
     try {
       const response = await axios.get(`${API_URL}`);
@@ -87,6 +87,8 @@ export default function Home() {
         <h1 className="text-3xl font-semibold text-center text-blue-600 mb-8">
           ML KARAMA
         </h1>
+
+        <p className="text-center text-gray-600 mb-4">API URL: {API_URL}</p>
 
         {/* Formulaire */}
         <form onSubmit={handleSubmit} className="space-y-6">
