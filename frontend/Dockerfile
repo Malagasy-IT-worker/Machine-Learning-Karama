@@ -17,7 +17,7 @@ RUN addgroup -g 1001 -S nodejs && \
 
 USER nextjs
 
-ENTRYPOINT ["./entrypoint.sh"]
+CMD ["./entrypoint.sh"]
 
 
 FROM base as local
