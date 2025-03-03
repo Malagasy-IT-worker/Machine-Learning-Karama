@@ -43,6 +43,7 @@ jobs:
           cache-from: type=local,src=/tmp/.buildx-cache-api
           cache-to: type=local,dest=/tmp/.buildx-cache-api,mode=max
           target: prod
+          load: true
 
       - name: Test API
         run: |
@@ -92,6 +93,7 @@ jobs:
           cache-from: type=local,src=/tmp/.buildx-cache-frontend
           cache-to: type=local,dest=/tmp/.buildx-cache-frontend,mode=max
           target: prod
+          load: true
 
       - name: Push frontend image
         uses: docker/build-push-action@v6
