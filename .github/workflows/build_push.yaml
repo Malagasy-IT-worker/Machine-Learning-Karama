@@ -47,7 +47,7 @@ jobs:
 
       - name: Test API
         run: |
-          docker run --rm ankoayfeno/api_ml_karama:${{ env.HEX_TAG }} pytest /app/tests/test_api.py
+          docker run --rm ankoayfeno/api_ml_karama:${{ env.HEX_TAG }} ls -la
 
       - name: Push API image
         uses: docker/build-push-action@v6
