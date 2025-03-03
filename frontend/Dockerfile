@@ -1,5 +1,5 @@
 FROM node:18-alpine as base
-RUN apk add --no-cache g++ make py3-pip libc6-compat curl iproute2 iputils wget bind-tools  net-tools,
+RUN apk add --no-cache g++ make py3-pip libc6-compat curl iproute2 iputils wget bind-tools  net-tools
 WORKDIR /app
 COPY package*.json ./
 EXPOSE 3000
