@@ -17,11 +17,18 @@ WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 
+ARG ENVIRONMENT
+ENV ENVIRONMENT=${ENVIRONMENT}
 
-RUN yarn build
+COPY .env.${ENVIRONMENT} .env
+ 
+RUN if [ "$ENVIRONMENT" = "prod" ]; then \
+      cp .env.prod .env && rm -f .env.dev; \
+    else \
+      cp .env.dev .env && rm -f .env.prod; \
+    fi
 
-
-
+RUN  yarn build
 
 FROM base AS runner
 WORKDIR /app
