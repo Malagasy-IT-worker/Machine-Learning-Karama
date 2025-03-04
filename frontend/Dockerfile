@@ -1,26 +1,21 @@
-FROM node:18-alpine as base
+FROM node:18-alpine AS base
 RUN apk add --no-cache g++ make py3-pip libc6-compat curl iproute2 iputils wget bind-tools  net-tools
 WORKDIR /app
 COPY package*.json ./
 EXPOSE 3000
 
-FROM base as prod
+FROM base AS prod
 WORKDIR /app
 COPY package*.json ./
 RUN npm ci
 COPY . .
 
-RUN chmod +x ./entrypoint.sh
+RUN chmod +x ./build.sh
 
-RUN addgroup -g 1001 -S nodejs && \
-    adduser -S nextjs -u 1001
-
-USER nextjs
-
-CMD ["./entrypoint.sh"]
+CMD ["./build.sh"]
 
 
-FROM base as local
+FROM base AS local
 ENV NODE_ENV=local
 RUN npm install
 COPY . .
