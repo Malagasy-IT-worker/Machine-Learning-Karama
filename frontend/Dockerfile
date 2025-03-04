@@ -22,13 +22,7 @@ ENV ENVIRONMENT=${ENVIRONMENT}
 
 COPY .env.${ENVIRONMENT} .env
  
-RUN if [ "$ENVIRONMENT" = "prod" ]; then \
-      cp .env.prod .env && rm -f .env.dev; \
-    else \
-      cp .env.dev .env && rm -f .env.prod; \
-    fi
-
-RUN  yarn build
+RUN yarn build
 
 FROM base AS runner
 WORKDIR /app
@@ -54,5 +48,3 @@ ENV PORT 3000
 ENV HOSTNAME "0.0.0.0"
 
 CMD ["node", "server.js"]
-
-

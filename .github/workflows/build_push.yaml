@@ -1,5 +1,5 @@
 name: Build Docker Images
-run-name: Build Docker Images pipeline triggered by ${{ github.actor }} on branch ${{ github.ref }}
+run-name: Build Docker Images pipeline triggered by ${{ github.actor }} on branch ${{ github.ref_name }}
 
 on:
   workflow_run:
@@ -45,7 +45,7 @@ jobs:
           tags: |
             ankoayfeno/api_ml_karama:${{ needs.generate-tag.outputs.hex_tag }}
             ankoayfeno/api_ml_karama:latest
-          target: prod
+          build-args: ENVIRONMENT=prod
 
   build-and-push-frontend:
     runs-on: ubuntu-latest
