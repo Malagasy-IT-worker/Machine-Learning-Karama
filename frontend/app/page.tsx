@@ -20,7 +20,7 @@ export default function Home() {
   const [new_salary, setSalaryFeedback] = useState<number>(0);
   const [lastData, setLastData] = useState<Job[]>([]);
   const [predicted_salary, setFirstSalary] = useState<Job[]>([]);
-  const [status, setStatus] = useState<string>("low");
+  const [status, setStatus] = useState<string>("normal");
 
   const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
@@ -56,35 +56,81 @@ export default function Home() {
     }
   };
 
-  const handleSalaryFeedback = (feedback: string) => {
+  const handleLow = ()=>{
+    setStatus("ambany loatra")
     setShowModal(true);
-  };
 
-  const handleModalSubmit = async () => {
-    setSalaryFeedback(userSalary);
-    setShowModal(false);
+  }
+  const handleNormal = ()=>{
+    setStatus("antonony")
+  }
+  const handleHigh = ()=>{
+    setStatus("ambony loatra")
+    setShowModal(true);
 
-    console.log("Le nouveau salaire est : " + new_salary);
-    const dataApi = {
-      company,
-      title,
-      year_experience,
-      predicted_salary,
-      status,
-      new_salary,
-    };
+  }
 
-    try {
-      const response = await axios.post(
-        `https://dev-api-karama.brocoding.icu/feedback`,
-        dataApi,
-      );
-      console.log(response);
-    } catch (error) {
-      console.error("Error creating job:", error);
+  const handleModalSubmit = async (e: any) => {
+    e.preventDefault()
+    console.log(status)
+    if (status === "ambany loatra"){
+      if (userSalary > salary && userSalary !== 0){
+        setSalaryFeedback(userSalary);
+        setShowModal(false);
+        console.log("Le nouveau salaire est : " + new_salary);
+        const dataApi = {
+          company,
+          title,
+          year_experience,
+          predicted_salary,
+          status,
+          new_salary,
+        };
+
+        try {
+          const response = await axios.post(
+              `https://dev-api-karama.brocoding.icu/feedback`,
+              dataApi,
+          );
+          console.log(response);
+        } catch (error) {
+          console.error("Error creating job:", error);
+        }
+        console.log(dataApi);
+      }else {
+        alert("Le salaire est inferieur au precedent")
+      }
+    }else if (status === "ambony loatra"){
+      if (userSalary < salary && userSalary !== 0){
+        setSalaryFeedback(userSalary);
+        setShowModal(false);
+        console.log("Le nouveau salaire est : " + new_salary);
+        const dataApi = {
+          company,
+          title,
+          year_experience,
+          predicted_salary,
+          status,
+          new_salary,
+        };
+
+        try {
+          const response = await axios.post(
+              `https://dev-api-karama.brocoding.icu/feedback`,
+              dataApi,
+          );
+          console.log(response);
+        } catch (error) {
+          console.error("Error creating job:", error);
+        }
+        console.log(dataApi);
+    }else {
+        console.log("Le salaire est superieur au precedent")
+      }
     }
-    console.log(dataApi);
   };
+
+
 
   return (
     <div className="min-h-screen bg-gray-100 flex justify-center items-center p-4">
@@ -177,19 +223,21 @@ export default function Home() {
               <p className="text-center mt-4">Do you think this salary is:</p>
               <div className="flex justify-center space-x-4 mt-2">
                 <button
-                  onClick={() => handleSalaryFeedback("Low Salary")}
+                  onClick={handleLow}
                   className="px-4 py-2 bg-red-600 text-white rounded-md hover:bg-red-700"
                 >
-                  Low
+                  Ambany loatra
                 </button>
-                <button className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-green-700">
+                <button
+                    onClick={handleNormal}
+                    className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-green-700">
                   Normal
                 </button>
                 <button
-                  onClick={() => handleSalaryFeedback("High Salary")}
+                  onClick={handleHigh}
                   className="px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700"
                 >
-                  High
+                  Ambony loatra
                 </button>
               </div>
             </div>
