@@ -26,7 +26,7 @@ export default function Home() {
 
   const fetchJobs = async () => {
     try {
-      const response = await axios.get(`https://dev-api-karama.brocoding.icu`);
+      const response = await axios.get(`API_URL`);
       setJobs(response.data);
     } catch (error) {
       console.error("Error fetching jobs:", error);
@@ -43,7 +43,7 @@ export default function Home() {
 
     try {
       const response = await axios.post(
-        `https://dev-api-karama.brocoding.icu/predict`,
+        `API_URL/predict`,
         newJob,
       );
       const predictedSalary = response.data.predicted_salary;
@@ -89,7 +89,7 @@ export default function Home() {
 
         try {
           const response = await axios.post(
-              `https://dev-api-karama.brocoding.icu/feedback`,
+              `API_URL/feedback`,
               dataApi,
           );
           console.log(response);
@@ -116,7 +116,7 @@ export default function Home() {
 
         try {
           const response = await axios.post(
-              `https://dev-api-karama.brocoding.icu/feedback`,
+              `API_URL/feedback`,
               dataApi,
           );
           console.log(response);

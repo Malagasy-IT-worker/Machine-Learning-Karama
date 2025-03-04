@@ -42,7 +42,7 @@ services:
       - "traefik.http.services.api-dev.loadbalancer.server.port=8080"
 
   front_prod:
-    image: ankoayfeno/ml_karama:latest
+    image: ankoayfeno/ml_karama:prod-latest
     profiles:
       - prod
     restart: unless-stopped
@@ -63,7 +63,7 @@ services:
       - "traefik.http.services.api-prod.loadbalancer.server.port=3000"
 
   front_dev:
-    image: ankoayfeno/ml_karama:latest
+    image: ankoayfeno/ml_karama:dev-latest
     profiles:
       - dev
     restart: unless-stopped

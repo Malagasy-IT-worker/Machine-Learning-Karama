@@ -62,14 +62,26 @@ jobs:
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
-
-      - name: Build and push frontend image
+      - name: Build and push frontend image for dev
         uses: docker/build-push-action@v6
         with:
           context: frontend
           file: frontend/Dockerfile
           push: true
           tags: |
-            ankoayfeno/ml_karama:${{ needs.generate-tag.outputs.hex_tag }}
-            ankoayfeno/ml_karama:latest
-          target: prod
+            ankoayfeno/ml_karama:dev-${{ needs.generate-tag.outputs.hex_tag }}
+            ankoayfeno/ml_karama:dev-latest
+          build-args: |
+            NEXT_PUBLIC_API_URL=https://dev-api-karama.brocoding.icu
+
+      - name: Build and push frontend image for prod
+        uses: docker/build-push-action@v6
+        with:
+          context: frontend
+          file: frontend/Dockerfile
+          push: true
+          tags: |
+            ankoayfeno/ml_karama:prod-${{ needs.generate-tag.outputs.hex_tag }}
+            ankoayfeno/ml_karama:prod-latest
+          build-args: |
+            NEXT_PUBLIC_API_URL=https://api-karama.brocoding.icu
