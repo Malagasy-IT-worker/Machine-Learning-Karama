@@ -4,7 +4,7 @@ run-name: Build Docker Images pipeline triggered by ${{ github.actor }} on branc
 on:
   workflow_run:
     workflows:
-      - API Test
+      - Test
     types:
       - completed
     branches:
