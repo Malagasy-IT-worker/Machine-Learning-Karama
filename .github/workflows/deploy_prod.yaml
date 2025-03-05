@@ -20,10 +20,10 @@ jobs:
         with:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
           ARGS: "-rlgoDz"
-          SOURCE: "docker-compose.yml"
+          SOURCE: "./docker-compose.yml"
           REMOTE_HOST: ${{ vars.REMOTE_HOST }}
           REMOTE_USER: ${{ vars.REMOTE_USER }}
           TARGET: "/home/${{ vars.REMOTE_USER }}/traefik/ml_karama/"
           SCRIPT_AFTER: |
-            docker-compose -f "/home/${{ vars.REMOTE_USER }}/traefik/ml_karama/docker-compose.yml" --profile prod down
+            docker-compose -f "/home/${{ vars.REMOTE_USER }}/traefik/ml_karama/docker-compose.yml" --profile prod pull && \
             docker-compose -f "/home/${{ vars.REMOTE_USER }}/traefik/ml_karama/docker-compose.yml" --profile prod up -d
