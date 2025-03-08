@@ -1,4 +1,4 @@
-FROM node:18-alpine AS base
+FROM node:latest AS base
 RUN apk add --no-cache g++ make py3-pip libc6-compat curl iproute2 iputils wget bind-tools  net-tools
 WORKDIR /app
 COPY package*.json ./

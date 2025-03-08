@@ -2,4 +2,5 @@
 
 npm run build
 
-npm start
+node .next/standalone/server.js
+rm -rf node_modules
