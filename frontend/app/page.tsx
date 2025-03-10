@@ -1,7 +1,16 @@
 "use client";
 import { useState, useEffect, FormEvent } from "react";
 import axios from "axios";
-import { log } from "console";
+import {
+  FaBuilding,
+  FaBriefcase,
+  FaChartLine,
+  FaMoneyBillWave,
+  FaCheckCircle,
+  FaExclamationTriangle,
+  FaTimes
+} from "react-icons/fa";
+import { toast, Toaster } from "react-hot-toast";
 
 interface Job {
   company: string;
@@ -19,10 +28,22 @@ export default function Home() {
   const [userSalary, setUserSalary] = useState<number>(0);
   const [new_salary, setSalaryFeedback] = useState<number>(0);
   const [lastData, setLastData] = useState<Job[]>([]);
-  const [predicted_salary, setFirstSalary] = useState<Job[]>([]);
+  const [predicted_salary, setFirstSalary] = useState<number>(0);
   const [status, setStatus] = useState<string>("normal");
 
   const API_URL = process.env.NEXT_PUBLIC_API_URL;
+
+  const companyOptions = [
+    { value: "Tana", label: "Tana", icon: <FaBuilding className="inline mr-2" /> },
+    { value: "Remote", label: "Remote", icon: <FaBriefcase className="inline mr-2" /> },
+    { value: "Faritra", label: "Faritra", icon: <FaBuilding className="inline mr-2" /> },
+  ];
+
+  const jobOptions = [
+    { value: "DevOps", label: "DevOps", icon: <FaChartLine className="inline mr-2" /> },
+    { value: "IA", label: "IA", icon: <FaBriefcase className="inline mr-2" /> },
+    { value: "Dev", label: "Dev", icon: <FaBriefcase className="inline mr-2" /> },
+  ];
 
   const fetchJobs = async () => {
     try {
@@ -39,12 +60,17 @@ export default function Home() {
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    const newJob = { company, title, year_experience: year_experience };
+    const newJob = { company, title, year_experience };
 
     try {
       const response = await axios.post(
+<<<<<<< HEAD
         `${API_URL}/predict`,
         newJob,
+=======
+          `https://dev-api-karama.brocoding.icu/predict`,
+          newJob,
+>>>>>>> f0e5695ab1c5772fdb0b245205f9859bda89e2a7
       );
       const predictedSalary = response.data.predicted_salary;
 
@@ -52,231 +78,277 @@ export default function Home() {
       setLastData(response.data);
       setFirstSalary(predictedSalary);
     } catch (error) {
-      console.error("Error creating job:", error);
+      toast.error("Erreur lors du calcul du salaire", {
+        icon: <FaExclamationTriangle className="text-red-500" />,
+      });
     }
   };
 
-  const handleLow = ()=>{
-    setStatus("ambany loatra")
+  const handleLow = () => {
+    setStatus("ambany loatra");
     setShowModal(true);
+  };
 
-  }
-  const handleNormal = ()=>{
-    setStatus("antonony")
-  }
-  const handleHigh = ()=>{
-    setStatus("ambony loatra")
+  const handleNormal = () => {
+    setStatus("antonony");
+    toast.success("Merci pour votre feedback!", {
+      icon: <FaCheckCircle className="text-green-500" />,
+    });
+  };
+
+  const handleHigh = () => {
+    setStatus("ambony loatra");
     setShowModal(true);
+  };
 
-  }
+  const handleModalSubmit = async (e: FormEvent) => {
+    e.preventDefault();
+    if (!userSalary) {
+      toast.error("Veuillez entrer un salaire valide", {
+        icon: <FaExclamationTriangle className="text-red-500" />,
+      });
+      return;
+    }
 
-  const handleModalSubmit = async (e: any) => {
-    e.preventDefault()
-    console.log(status)
-    if (status === "ambany loatra"){
-      if (userSalary > salary && userSalary !== 0){
+    if (status === "ambany loatra") {
+      if (userSalary > salary) {
         setSalaryFeedback(userSalary);
         setShowModal(false);
-        console.log("Le nouveau salaire est : " + new_salary);
         const dataApi = {
           company,
           title,
           year_experience,
           predicted_salary,
           status,
-          new_salary,
+          new_salary: userSalary,
         };
 
         try {
+<<<<<<< HEAD
           const response = await axios.post(
               `${API_URL}/feedback`,
+=======
+          await axios.post(
+              `https://dev-api-karama.brocoding.icu/feedback`,
+>>>>>>> f0e5695ab1c5772fdb0b245205f9859bda89e2a7
               dataApi,
           );
-          console.log(response);
+          toast.success("Feedback envoyé avec succès!", {
+            icon: <FaCheckCircle className="text-green-500" />,
+          });
         } catch (error) {
-          console.error("Error creating job:", error);
+          console.error("Error sending feedback:", error);
         }
-        console.log(dataApi);
-      }else {
-        alert("Le salaire est inferieur au precedent")
+      } else {
+        toast.error("Le salaire doit être supérieur à la prédiction", {
+          icon: <FaExclamationTriangle className="text-red-500" />,
+        });
       }
-    }else if (status === "ambony loatra"){
-      if (userSalary < salary && userSalary !== 0){
+    } else if (status === "ambony loatra") {
+      if (userSalary < salary) {
         setSalaryFeedback(userSalary);
         setShowModal(false);
-        console.log("Le nouveau salaire est : " + new_salary);
         const dataApi = {
           company,
           title,
           year_experience,
           predicted_salary,
           status,
-          new_salary,
+          new_salary: userSalary,
         };
 
         try {
+<<<<<<< HEAD
           const response = await axios.post(
               `${API_URL}/feedback`,
+=======
+          await axios.post(
+              `https://dev-api-karama.brocoding.icu/feedback`,
+>>>>>>> f0e5695ab1c5772fdb0b245205f9859bda89e2a7
               dataApi,
           );
-          console.log(response);
+          toast.success("Feedback envoyé avec succès!", {
+            icon: <FaCheckCircle className="text-green-500" />,
+          });
         } catch (error) {
-          console.error("Error creating job:", error);
+          console.error("Error sending feedback:", error);
         }
-        console.log(dataApi);
-    }else {
-        console.log("Le salaire est superieur au precedent")
+      } else {
+        toast.error("Le salaire doit être inférieur à la prédiction", {
+          icon: <FaExclamationTriangle className="text-red-500" />,
+        });
       }
     }
   };
-
-
 
   return (
-    <div className="min-h-screen bg-gray-100 flex justify-center items-center p-4">
-      <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-lg">
-        <h1 className="text-3xl font-semibold text-center text-blue-600 mb-8">
-          ML KARAMA
-        </h1>
+      <div className="min-h-screen bg-gray-100 flex justify-center items-center p-4">
+        <Toaster position="top-right" reverseOrder={false} />
 
-        {/* Formulaire */}
-        <form onSubmit={handleSubmit} className="space-y-6">
-          {/* Sélection du company */}
-          <div>
-            <label
-              className="block text-sm font-medium text-gray-700"
-              htmlFor="company"
-            >
-              Orinasa
-            </label>
-            <select
-              id="company"
-              className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
-              value={company}
-              onChange={(e) => setCompany(e.target.value)}
-              required
-            >
-              <option value="">Misafidy toerana</option>
-              <option value="Tana">Tana</option>
-              <option value="Remote">Remote</option>
-              <option value="Faritra">Faritra</option>
-            </select>
-          </div>
+        <div className="bg-white p-8 rounded-xl shadow-2xl w-full max-w-2xl transition-all duration-300 hover:shadow-3xl">
+          <h1 className="text-4xl font-bold text-center text-blue-600 mb-8 flex justify-center items-center">
+            <FaMoneyBillWave className="mr-3" /> ML KARAMA
+          </h1>
 
-          {/* Sélection du title */}
-          <div>
-            <label
-              className="block text-sm font-medium text-gray-700"
-              htmlFor="title"
-            >
-              Asa
-            </label>
-            <select
-              id="title"
-              className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
-              value={title}
-              onChange={(e) => setTitle(e.target.value)}
-              required
-            >
-              <option value="">Misafisy Asa</option>
-              <option value="DevOps">DevOps</option>
-              <option value="IA">IA</option>
-              <option value="Dev">Dev</option>
-            </select>
-          </div>
-
-          {/* Sélection des années d'expérience */}
-          <div>
-            <label
-              className="block text-sm font-medium text-gray-700"
-              htmlFor="yearExperience"
-            >
-              Taona niasana
-            </label>
-            <input
-              type="number"
-              id="yearExperience"
-              className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
-              value={year_experience}
-              onChange={(e) => setYearExperience(Number(e.target.value))}
-              required
-            />
-          </div>
-
-          <button
-            type="submit"
-            className="w-full py-2 bg-blue-600 text-white font-semibold rounded-md hover:bg-blue-700 transition duration-200"
-          >
-            Karama
-          </button>
-        </form>
-
-        {/* Liste des offres */}
-        <div className="mt-8">
-          {salary > 0 && (
-            <div className="bg-gray-50 p-4 rounded-lg shadow-md mb-4">
-              <p className="text-gray-600 text-center">
-                {salary.toLocaleString("es-ES")} Ar
-              </p>
-
-              {/* Demande de feedback sur le salaire */}
-              <p className="text-center mt-4">Do you think this salary is:</p>
-              <div className="flex justify-center space-x-4 mt-2">
-                <button
-                  onClick={handleLow}
-                  className="px-4 py-2 bg-red-600 text-white rounded-md hover:bg-red-700"
+          <form onSubmit={handleSubmit} className="space-y-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="relative">
+                <label className="block text-sm font-semibold text-gray-700 mb-2">
+                  <FaBuilding className="inline mr-2 text-blue-500" />
+                  Orinasa
+                </label>
+                <select
+                    id="company"
+                    className="w-full pl-10 pr-4 py-3 border-2 border-gray-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all"
+                    value={company}
+                    onChange={(e) => setCompany(e.target.value)}
+                    required
                 >
-                  Ambany loatra
-                </button>
-                <button
-                    onClick={handleNormal}
-                    className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-green-700">
-                  Normal
-                </button>
-                <button
-                  onClick={handleHigh}
-                  className="px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700"
+                  <option value="">Choisir une localisation</option>
+                  {companyOptions.map((opt) => (
+                      <option key={opt.value} value={opt.value}>
+                        {opt.icon} {opt.label}
+                      </option>
+                  ))}
+                </select>
+              </div>
+
+              <div className="relative">
+                <label className="block text-sm font-semibold text-gray-700 mb-2">
+                  <FaBriefcase className="inline mr-2 text-blue-500" />
+                  Asa
+                </label>
+                <select
+                    id="title"
+                    className="w-full pl-10 pr-4 py-3 border-2 border-gray-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all"
+                    value={title}
+                    onChange={(e) => setTitle(e.target.value)}
+                    required
                 >
-                  Ambony loatra
-                </button>
+                  <option value="">Choisir un métier</option>
+                  {jobOptions.map((opt) => (
+                      <option key={opt.value} value={opt.value}>
+                        {opt.icon} {opt.label}
+                      </option>
+                  ))}
+                </select>
               </div>
             </div>
+
+            <div className="relative">
+              <label className="block text-sm font-semibold text-gray-700 mb-2">
+                <FaChartLine className="inline mr-2 text-blue-500" />
+                Taona niasana
+              </label>
+              <input
+                  type="number"
+                  id="yearExperience"
+                  className="w-full pl-10 pr-4 py-3 border-2 border-gray-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all"
+                  value={year_experience}
+                  onChange={(e) => setYearExperience(Number(e.target.value))}
+                  required
+              />
+            </div>
+
+            <button
+                type="submit"
+                className="w-full py-3 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-lg transition-all duration-300 transform hover:scale-105 flex items-center justify-center"
+            >
+              <FaMoneyBillWave className="mr-2" />
+              Calculer le Karama
+            </button>
+          </form>
+
+          {salary > 0 && (
+              <div className="mt-8 animate-fade-in-up">
+                <div className="bg-gradient-to-r from-blue-50 to-indigo-50 p-6 rounded-xl shadow-md">
+                  <p className="text-2xl text-center font-bold text-gray-800">
+                <span className="text-4xl text-blue-600">
+                  {salary.toLocaleString("fr-FR")}
+                </span>{" "}
+                    Ar
+                  </p>
+
+                  <p className="text-center text-gray-600 mt-4 mb-4">
+                    Ce salaire vous paraît-il correct ?
+                  </p>
+
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <button
+                        onClick={handleLow}
+                        className="p-4 bg-red-100 hover:bg-red-200 text-red-700 rounded-xl transition-all flex flex-col items-center justify-center hover:shadow-md"
+                    >
+                      <FaExclamationTriangle className="text-2xl mb-2" />
+                      Ambany loatra
+                    </button>
+                    <button
+                        onClick={handleNormal}
+                        className="p-4 bg-green-100 hover:bg-green-200 text-green-700 rounded-xl transition-all flex flex-col items-center justify-center hover:shadow-md"
+                    >
+                      <FaCheckCircle className="text-2xl mb-2" />
+                      Antonony
+                    </button>
+                    <button
+                        onClick={handleHigh}
+                        className="p-4 bg-orange-100 hover:bg-orange-200 text-orange-700 rounded-xl transition-all flex flex-col items-center justify-center hover:shadow-md"
+                    >
+                      <FaExclamationTriangle className="text-2xl mb-2" />
+                      Ambony loatra
+                    </button>
+                  </div>
+                </div>
+              </div>
           )}
         </div>
-      </div>
 
-      {/* Modale pour saisir le salaire */}
-      {showModal && (
-        <div className="fixed inset-0 bg-gray-500 bg-opacity-75 flex justify-center items-center">
-          <div className="bg-white p-6 rounded-lg shadow-lg max-w-sm w-full">
-            <h2 className="text-xl font-semibold text-center mb-4">
-              Enter your expected salary
-            </h2>
-            <input
-              type="number"
-              className="w-full px-4 py-2 border border-gray-300 rounded-md"
-              value={userSalary}
-              onChange={(e) => setUserSalary(Number(e.target.value))}
-              placeholder="Enter salary"
-              required
-            />
-            <div className="mt-4 flex justify-between">
-              <button
-                onClick={() => setShowModal(false)}
-                className="px-4 py-2 bg-gray-300 text-gray-700 rounded-md hover:bg-gray-400"
-              >
-                Cancel
-              </button>
-              <button
-                onClick={handleModalSubmit}
-                className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700"
-              >
-                Submit
-              </button>
+        {showModal && (
+            <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center p-4 backdrop-blur-sm">
+              <div className="bg-white p-8 rounded-2xl shadow-2xl max-w-md w-full animate-pop-in">
+                <div className="flex justify-between items-center mb-6">
+                  <h2 className="text-2xl font-bold flex items-center">
+                    <FaMoneyBillWave className="mr-2 text-blue-500" />
+                    Votre estimation
+                  </h2>
+                  <button
+                      onClick={() => setShowModal(false)}
+                      className="p-2 hover:bg-gray-100 rounded-full"
+                  >
+                    <FaTimes className="text-gray-500" />
+                  </button>
+                </div>
+
+                <form onSubmit={handleModalSubmit}>
+                  <div className="relative">
+                    <input
+                        type="number"
+                        className="w-full pl-12 pr-4 py-3 border-2 border-gray-200 rounded-lg focus:border-blue-500 text-lg font-medium"
+                        placeholder="Entrez le montant"
+                        value={userSalary}
+                        onChange={(e) => setUserSalary(Number(e.target.value))}
+                    />
+                    <span className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400">Ar</span>
+                  </div>
+
+                  <div className="mt-6 grid grid-cols-2 gap-4">
+                    <button
+                        type="button"
+                        onClick={() => setShowModal(false)}
+                        className="py-2 px-4 bg-gray-100 hover:bg-gray-200 text-gray-700 rounded-lg transition-all"
+                    >
+                      Annuler
+                    </button>
+                    <button
+                        type="submit"
+                        className="py-2 px-4 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-all flex items-center justify-center"
+                    >
+                      <FaCheckCircle className="mr-2" />
+                      Confirmer
+                    </button>
+                  </div>
+                </form>
+              </div>
             </div>
-          </div>
-        </div>
-      )}
-    </div>
+        )}
+      </div>
   );
 }

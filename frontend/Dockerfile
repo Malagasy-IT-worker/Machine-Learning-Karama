@@ -2,7 +2,7 @@ FROM node:18-alpine AS base
 
 
 FROM base AS deps
-RUN apk add --no-cache libc6-compat
+RUN apk add --no-cache libc6-compat g++ make py3-pip libc6-compat curl iproute2 iputils wget bind-tools  net-tools
 WORKDIR /app
 COPY package.json yarn.lock* package-lock.json* pnpm-lock.yaml* ./
 RUN \
