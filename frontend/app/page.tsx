@@ -136,7 +136,7 @@ export default function Home() {
         };
 
         try {
-          const response = await axios.post(`${API_URL}/feedback`, dataApi);
+          await axios.post(`${API_URL}/feedback`, dataApi);
           toast.success("Feedback envoyé avec succès!", {
             icon: <FaCheckCircle className="text-green-500" />,
           });
