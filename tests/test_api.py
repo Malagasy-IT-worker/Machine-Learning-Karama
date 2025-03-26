@@ -44,6 +44,6 @@ def test_feedback():
         "predicted_salary": 50000.0,
         "status": "hight"
     }
-    response = client.post("/feedback", json=feedback_data)
+    response = client.post("/feed", json=feedback_data)
     assert response.status_code == 200
     assert response.json()["message"] == "Feedback saved"
