@@ -1,0 +1,14 @@
+name: Fetch URL Every 5 Minutes
+on:
+  schedule:
+    - cron: "*/10 * * * *"
+
+jobs:
+  fetch_url:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Fetch URL to active
+        run: |
+          curl -s https://ml-karama.onrender.com
+          curl -s https://api-ml-karama.onrender.com
+      

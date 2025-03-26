@@ -7,23 +7,35 @@ on:
   pull_request:
     branches:
       - main
+# jobs:
+#   deploy-dev:
+#     runs-on: ubuntu-latest
+
+#     steps:
+#       - name: Checkout repository
+#         uses: actions/checkout@v4
+
+#       - name: Deploy to Prod server
+#         uses: easingthemes/ssh-deploy@main
+#         with:
+#           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+#           ARGS: "-rlgoDz"
+#           SOURCE: "./docker-compose.yml"
+#           REMOTE_HOST: ${{ vars.REMOTE_HOST }}
+#           REMOTE_USER: ${{ vars.REMOTE_USER }}
+#           TARGET: "/home/${{ vars.REMOTE_USER }}/traefik/ml_karama/"
+#           SCRIPT_AFTER: |
+#             docker-compose -f "/home/${{ vars.REMOTE_USER }}/traefik/ml_karama/docker-compose.yml" --profile prod pull && \
+#             docker-compose -f "/home/${{ vars.REMOTE_USER }}/traefik/ml_karama/docker-compose.yml" --profile prod up -d
+
 jobs:
   deploy-dev:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Deploy to Dev server
-        uses: easingthemes/ssh-deploy@main
-        with:
-          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-          ARGS: "-rlgoDz"
-          SOURCE: "./docker-compose.yml"
-          REMOTE_HOST: ${{ vars.REMOTE_HOST }}
-          REMOTE_USER: ${{ vars.REMOTE_USER }}
-          TARGET: "/home/${{ vars.REMOTE_USER }}/traefik/ml_karama/"
-          SCRIPT_AFTER: |
-            docker-compose -f "/home/${{ vars.REMOTE_USER }}/traefik/ml_karama/docker-compose.yml" --profile prod pull && \
-            docker-compose -f "/home/${{ vars.REMOTE_USER }}/traefik/ml_karama/docker-compose.yml" --profile prod up -d
+      - name: Deploy
+        env:
+          deploy_dev_api_url: ${{ secrets.RENDER_DEPLOY_HOOK_API_URL }}
+          deploy_dev_url: ${{ secret.RENDER_DEPLOY_HOOK_CLIENT_URL }}
+        run: |
+          curl "$deploy_dev_api_url"
+          curl "$deploy_dev_client_url"
