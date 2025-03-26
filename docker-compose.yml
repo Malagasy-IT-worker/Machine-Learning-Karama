@@ -46,8 +46,6 @@ services:
     profiles:
       - prod
     restart: unless-stopped
-    environment:
-      - NEXT_PUBLIC_API_URL=https://api-karama.brocoding.icu
     networks:
       - proxy
     labels:
@@ -67,8 +65,6 @@ services:
     profiles:
       - dev
     restart: unless-stopped
-    environment:
-      - NEXT_PUBLIC_API_URL=https://dev-api-karama.brocoding.icu
     networks:
       - proxy
     labels:
@@ -97,11 +93,12 @@ services:
   front_local:
     profiles:
       - local
-    environment:
-      - NEXT_PUBLIC_API_URL=https://dev-api-karama.brocoding.icu
     build:
       context: frontend
       dockerfile: Dockerfile
+      target: production
+    environment:
+      - NEXT_PUBLIC_API_URL=https://dev-api-karama.brocoding.icu
     ports:
       - "3000:3000"
 
