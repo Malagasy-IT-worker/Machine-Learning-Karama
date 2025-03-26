@@ -95,7 +95,7 @@ services:
       - local
     build:
       context: frontend
-      dockerfile: Dockerfile
+      dockerfile: Dockerfi0le
       target: production
     environment:
       - NEXT_PUBLIC_API_URL=https://dev-api-karama.brocoding.icu

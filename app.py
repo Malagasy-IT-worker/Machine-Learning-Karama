@@ -30,7 +30,7 @@ class FeedbackData(InputData):
     status: str
     new_salary: Optional[float] = None
 
-@app.post("/feed")
+@app.post("/feedback")
 async def feedback(feedback_data: FeedbackData):
     print(feedback_data.dict())
     df = pd.DataFrame([feedback_data.dict()])

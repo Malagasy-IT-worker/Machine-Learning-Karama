@@ -28,14 +28,17 @@ on:
 #             docker-compose -f "/home/${{ vars.REMOTE_USER }}/traefik/ml_karama/docker-compose.yml" --profile prod pull && \
 #             docker-compose -f "/home/${{ vars.REMOTE_USER }}/traefik/ml_karama/docker-compose.yml" --profile prod up -d
 
+
 jobs:
   deploy-dev:
     runs-on: ubuntu-latest
     steps:
       - name: Deploy
-        env:
-          deploy_dev_api_url: ${{ secrets.RENDER_DEPLOY_HOOK_API_URL }}
-          deploy_dev_url: ${{ secret.RENDER_DEPLOY_HOOK_CLIENT_URL }}
         run: |
-          curl "$deploy_dev_api_url"
-          curl "$deploy_dev_client_url"
+          deploy_dev_api_url="${{ vars.RENDER_DEPLOY_HOOK_URL }}"
+          deploy_dev_client_url="${{ vars.RENDER_DEPLOY_HOOK_CLIENT_URL }}"
+
+          echo "Déploiement API..."
+          curl -sSL "$deploy_dev_api_url"
+          echo "Déploiement Client..."
+          curl -sSL "$deploy_dev_client_url"
