@@ -10,23 +10,33 @@ on:
     branches:
       - develop
 
+# jobs:
+#   deploy-dev:
+#     runs-on: ubuntu-latest
+#     if: github.event.workflow_run.conclusion == 'success'
+#     steps:
+#       - name: Checkout repository
+#         uses: actions/checkout@v4
+
+#       - name: Deploy to Dev server
+#         uses: easingthemes/ssh-deploy@main
+#         with:
+#           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+#           ARGS: "-rlgoDzvc"
+#           SOURCE: "./docker-compose.yml"
+#           REMOTE_HOST: ${{ vars.REMOTE_HOST }}
+#           REMOTE_USER: ${{ vars.REMOTE_USER }}
+#           TARGET: "/home/${{ vars.REMOTE_USER }}/traefik/ml_karama/"
+#           SCRIPT_AFTER: |
+#             docker-compose -f "/home/${{ vars.REMOTE_USER }}/traefik/ml_karama/docker-compose.yml" --profile dev pull && \
+#             docker-compose -f "/home/${{ vars.REMOTE_USER }}/traefik/ml_karama/docker-compose.yml" --profile dev up -d
+
 jobs:
   deploy-dev:
     runs-on: ubuntu-latest
-    if: github.event.workflow_run.conclusion == 'success'
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Deploy to Dev server
-        uses: easingthemes/ssh-deploy@main
-        with:
-          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-          ARGS: "-rlgoDzvc"
-          SOURCE: "./docker-compose.yml"
-          REMOTE_HOST: ${{ vars.REMOTE_HOST }}
-          REMOTE_USER: ${{ vars.REMOTE_USER }}
-          TARGET: "/home/${{ vars.REMOTE_USER }}/traefik/ml_karama/"
-          SCRIPT_AFTER: |
-            docker-compose -f "/home/${{ vars.REMOTE_USER }}/traefik/ml_karama/docker-compose.yml" --profile dev pull && \
-            docker-compose -f "/home/${{ vars.REMOTE_USER }}/traefik/ml_karama/docker-compose.yml" --profile dev up -d
+      - name: Deploy
+        env:
+          deploy_dev_api_url: ${{ secrets.RENDER_DEPLOY_HOOK_URL }}
+        run: |
+          curl "$deploy_dev_api_url"
