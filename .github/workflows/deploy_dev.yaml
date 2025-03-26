@@ -35,10 +35,30 @@ jobs:
   deploy-dev:
     runs-on: ubuntu-latest
     steps:
+      - name: Vérifier les variables
+        run: |
+          echo "API URL: '$deploy_dev_api_url'"
+          echo "Client URL: '$deploy_dev_client_url'"
+        env:
+          deploy_dev_api_url: ${{ vars.RENDER_DEPLOY_HOOK_URL }}
+          deploy_dev_client_url: ${{ vars.RENDER_DEPLOY_HOOK_CLIENT_URL }}
+
       - name: Deploy
         env:
           deploy_dev_api_url: ${{ vars.RENDER_DEPLOY_HOOK_URL }}
           deploy_dev_client_url: ${{ vars.RENDER_DEPLOY_HOOK_CLIENT_URL }}
         run: |
-          curl "$deploy_dev_api_url"
-          curl "$deploy_dev_client_url"
+          if [ -z "$deploy_dev_api_url" ]; then
+            echo "Erreur : deploy_dev_api_url est vide !" >&2
+            exit 1
+          fi
+          if [ -z "$deploy_dev_client_url" ]; then
+            echo "Erreur : deploy_dev_client_url est vide !" >&2
+            exit 1
+          fi
+
+          echo "Déploiement API..."
+          curl -sSL "$deploy_dev_api_url"
+
+          echo "Déploiement Client..."
+          curl -sSL "$deploy_dev_client_url"
