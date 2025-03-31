@@ -25,7 +25,7 @@ jobs:
           REMOTE_USER: ${{ vars.REMOTE_USER }}
           TARGET: "/home/${{ vars.REMOTE_USER }}/ml_karama/"
           SCRIPT_BEFORE: |
-            mkdir -p /home/${{ secrets.REMOTE_USER }}/ml_karama/
+            sudo mkdir -p /home/${{ secrets.REMOTE_USER }}/ml_karama/
           SCRIPT_AFTER: |
             docker-compose -f "/home/${{ vars.REMOTE_USER }}/ml_karama/docker-compose.yml" --profile prod pull && \
             docker-compose -f "/home/${{ vars.REMOTE_USER }}/ml_karama/docker-compose.yml" --profile prod up -d
