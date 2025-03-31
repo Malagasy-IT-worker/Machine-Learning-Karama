@@ -1,10 +1,9 @@
 services:
   traefik:
     image: traefik:v2.11
-    container_name: traefik
     restart: unless-stopped
     security_opt:
-      - no-new-privileges:true
+      - "no-new-privileges:true"
     networks:
       - proxy
     ports:

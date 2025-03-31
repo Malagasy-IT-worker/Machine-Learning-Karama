@@ -66,16 +66,16 @@ jobs:
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
 
-      # - name: Build and push frontend image for dev
-      #   uses: docker/build-push-action@v6
-      #   with:
-      #     context: frontend
-      #     file: frontend/Dockerfile
-      #     push: true
-      #     tags: |
-      #       ankoayfeno/ml_karama:dev-${{ needs.generate-tag.outputs.hex_tag }}
-      #       ankoayfeno/ml_karama:dev-latest
-      #     target: development
+      - name: Build and push frontend image for dev
+        uses: docker/build-push-action@v6
+        with:
+          context: frontend
+          file: frontend/Dockerfile
+          push: true
+          tags: |
+            ankoayfeno/ml_karama:dev-${{ needs.generate-tag.outputs.hex_tag }}
+            ankoayfeno/ml_karama:dev-latest
+          target: development
 
       - name: Build and push frontend image for prod
         uses: docker/build-push-action@v6
@@ -85,5 +85,5 @@ jobs:
           push: true
           tags: |
             ankoayfeno/ml_karama:prod-${{ needs.generate-tag.outputs.hex_tag }}
-            ankoayfeno/ml_karama:latest
+            ankoayfeno/ml_karama:prod-latest
           target: production

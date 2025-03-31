@@ -1,5 +1,4 @@
 name: Deploy Dev
-run-name: Deploy Dev pipeline triggered by ${{ github.actor }} on branch ${{ github.ref }}
 
 on:
   workflow_run:
@@ -7,40 +6,41 @@ on:
       - Build docker images
     types:
       - completed
-    branches:
-      - develop
-
-# jobs:
-#   deploy-dev:
-#     runs-on: ubuntu-latest
-#     if: github.event.workflow_run.conclusion == 'success'
-#     steps:
-#       - name: Checkout repository
-#         uses: actions/checkout@v4
-
-#       - name: Deploy to Dev server
-#         uses: easingthemes/ssh-deploy@main
-#         with:
-#           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-#           ARGS: "-rlgoDzvc"
-#           SOURCE: "./docker-compose.yml"
-#           REMOTE_HOST: ${{ vars.REMOTE_HOST }}
-#           REMOTE_USER: ${{ vars.REMOTE_USER }}
-#           TARGET: "/home/${{ vars.REMOTE_USER }}/traefik/ml_karama/"
-#           SCRIPT_AFTER: |
-#             docker-compose -f "/home/${{ vars.REMOTE_USER }}/traefik/ml_karama/docker-compose.yml" --profile dev pull && \
-#             docker-compose -f "/home/${{ vars.REMOTE_USER }}/traefik/ml_karama/docker-compose.yml" --profile dev up -d
 
 jobs:
   deploy-dev:
     runs-on: ubuntu-latest
+    name: Deploy Dev pipeline triggered by ${{ github.actor }} on branch ${{ github.ref }}
+    if: github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.head_branch == 'develop'
     steps:
-      - name: Deploy
-        run: |
-          deploy_dev_api_url="${{ vars.RENDER_DEPLOY_HOOK_API_URL }}"
-          deploy_dev_client_url="${{ vars.RENDER_DEPLOY_HOOK_CLIENT_URL }}"
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-          echo "Déploiement API..."
-          curl -sSL "$deploy_dev_api_url"
-          echo "Déploiement Client..."
-          curl -sSL "$deploy_dev_client_url"
+      - name: Deploy to Dev server
+        uses: easingthemes/ssh-deploy@main
+        with:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          ARGS: "-rlgoDzvc"
+          SOURCE: "./docker-compose.yml"
+          REMOTE_HOST: ${{ vars.REMOTE_HOST }}
+          REMOTE_USER: ${{ vars.REMOTE_USER }}
+          TARGET: "/home/${{ vars.REMOTE_USER }}/ml_karama/"
+          SCRIPT_BEFORE: |
+            mkdir -p /home/${{ secrets.REMOTE_USER }}/ml_karama/
+          SCRIPT_AFTER: |
+            docker-compose -f "/home/${{ vars.REMOTE_USER }}/ml_karama/docker-compose.yml" --profile dev pull && \
+            docker-compose -f "/home/${{ vars.REMOTE_USER }}/ml_karama/docker-compose.yml" --profile dev up -d
+
+# jobs:
+#   deploy-dev:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Deploy
+#         run: |
+#           deploy_dev_api_url="${{ vars.RENDER_DEPLOY_HOOK_API_URL }}"
+#           deploy_dev_client_url="${{ vars.RENDER_DEPLOY_HOOK_CLIENT_URL }}"
+
+#           echo "Déploiement API..."
+#           curl -sSL "$deploy_dev_api_url"
+#           echo "Déploiement Client..."
+#           curl -sSL "$deploy_dev_client_url"

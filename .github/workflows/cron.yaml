@@ -9,6 +9,5 @@ jobs:
     steps:
       - name: Curl URL to active
         run: |
-          curl -s https://ml-karama.onrender.com
-          curl -s https://api-ml-karama.onrender.com
-      
+          # curl -s https://ml-karama.onrender.com
+          # curl -s https://api-ml-karama.onrender.com
