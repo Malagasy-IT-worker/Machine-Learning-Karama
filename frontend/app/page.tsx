@@ -37,17 +37,17 @@ export default function Home() {
     {
       value: "Tana",
       label: "Tana",
-      icon: <FaBuilding className="inline mr-2" />,
+      icon: "",
     },
     {
       value: "Remote",
       label: "Remote",
-      icon: <FaBriefcase className="inline mr-2" />,
+      icon: "",
     },
     {
       value: "Faritra",
       label: "Faritra",
-      icon: <FaBuilding className="inline mr-2" />,
+      icon: "",
     },
   ];
 
@@ -55,13 +55,15 @@ export default function Home() {
     {
       value: "DevOps",
       label: "DevOps",
-      icon: <FaChartLine className="inline mr-2" />,
+      icon: "",
     },
-    { value: "IA", label: "IA", icon: <FaBriefcase className="inline mr-2" /> },
+    { value: "IA", label: "IA",
+      icon: "",
+    },
     {
       value: "Dev",
       label: "Dev",
-      icon: <FaBriefcase className="inline mr-2" />,
+      icon: "",
     },
   ];
 
@@ -101,6 +103,12 @@ export default function Home() {
     setShowModal(true);
   };
 
+  function verifierZero(input: any) {
+    if (input.value.startsWith("0") && input.value.length > 1 && !input.value.startsWith("0.")) {
+      input.value = input.value.slice(1); // Supprime le premier caractère
+    }
+  }
+
   const handleNormal = () => {
     setStatus("antonony");
     toast.success("Merci pour votre feedback!", {
@@ -117,7 +125,7 @@ export default function Home() {
     e.preventDefault();
     if (!userSalary) {
       toast.error("Veuillez entrer un salaire valide", {
-        icon: <FaExclamationTriangle className="text-red-500" />,
+        icon: "",
       });
       return;
     }
@@ -138,14 +146,14 @@ export default function Home() {
         try {
           await axios.post(`${API_URL}/feedback`, dataApi);
           toast.success("Feedback envoyé avec succès!", {
-            icon: <FaCheckCircle className="text-green-500" />,
+            icon: "",
           });
         } catch (error) {
           console.error("Error sending feedback:", error);
         }
       } else {
         toast.error("Le salaire doit être supérieur à la prédiction", {
-          icon: <FaExclamationTriangle className="text-red-500" />,
+          icon: "",
         });
       }
     } else if (status === "ambony loatra") {
@@ -164,14 +172,14 @@ export default function Home() {
         try {
           const response = await axios.post(`${API_URL}/feedback`, dataApi);
           toast.success("Feedback envoyé avec succès!", {
-            icon: <FaCheckCircle className="text-green-500" />,
+            icon: "",
           });
         } catch (error) {
           console.error("Error sending feedback:", error);
         }
       } else {
         toast.error("Le salaire doit être inférieur à la prédiction", {
-          icon: <FaExclamationTriangle className="text-red-500" />,
+          icon: "",
         });
       }
     }
@@ -239,6 +247,7 @@ export default function Home() {
             <input
               type="number"
               id="yearExperience"
+              placeholder={"dd"}
               className="w-full pl-10 pr-4 py-3 border-2 border-gray-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all"
               value={year_experience}
               onChange={(e) => setYearExperience(Number(e.target.value))}
