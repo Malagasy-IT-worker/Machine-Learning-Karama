@@ -98,7 +98,11 @@ services:
       dockerfile: Dockerfile
       target: development
     environment:
-      - NEXT_PUBLIC_API_URL=http://localhost:8080/
+      - NEXT_PUBLIC_API_URL=http://localhost:8080
+    develop:
+      watch:
+        - path: ./frontend
+          action: rebuild
     ports:
       - "3000:3000"
 
