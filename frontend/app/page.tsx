@@ -251,7 +251,7 @@ export default function Home() {
             className="w-full py-3 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-lg transition-all duration-300 transform hover:scale-105 flex items-center justify-center"
           >
             <FaMoneyBillWave className="mr-2" />
-            Calculer le Karama
+            Kajio lay Karama
           </button>
         </form>
 
