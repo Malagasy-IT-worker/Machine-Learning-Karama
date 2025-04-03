@@ -50,15 +50,15 @@ services:
       - proxy
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.api-prod.entrypoints=http"
-      - "traefik.http.routers.api-prod.rule=Host(`karama.brocoding.icu`)"
+      - "traefik.http.routers.front-prod.entrypoints=http"
+      - "traefik.http.routers.front-prod.rule=Host(`karama.brocoding.icu`)"
       - "traefik.http.middlewares.redirect-to-https.redirectscheme.scheme=https"
-      - "traefik.http.routers.api-prod.middlewares=redirect-to-https"
-      - "traefik.http.routers.api-prod-secure.entrypoints=https"
-      - "traefik.http.routers.api-prod-secure.rule=Host(`karama.brocoding.icu`)"
-      - "traefik.http.routers.api-prod-secure.tls=true"
-      - "traefik.http.routers.api-prod-secure.tls.certresolver=http"
-      - "traefik.http.services.api-prod.loadbalancer.server.port=3000"
+      - "traefik.http.routers.front-prod.middlewares=redirect-to-https"
+      - "traefik.http.routers.front-prod-secure.entrypoints=https"
+      - "traefik.http.routers.front-prod-secure.rule=Host(`karama.brocoding.icu`)"
+      - "traefik.http.routers.front-prod-secure.tls=true"
+      - "traefik.http.routers.front-prod-secure.tls.certresolver=http"
+      - "traefik.http.services.front-prod.loadbalancer.server.port=3000"
 
   front_dev:
     image: ankoayfeno/ml_karama:dev-latest
@@ -69,15 +69,15 @@ services:
       - proxy
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.api-prod.entrypoints=http"
-      - "traefik.http.routers.api-prod.rule=Host(`dev-karama.brocoding.icu`)"
+      - "traefik.http.routers.front-dev.entrypoints=http"
+      - "traefik.http.routers.front-dev.rule=Host(`dev-karama.brocoding.icu`)"
       - "traefik.http.middlewares.redirect-to-https.redirectscheme.scheme=https"
-      - "traefik.http.routers.api-prod.middlewares=redirect-to-https"
-      - "traefik.http.routers.api-prod-secure.entrypoints=https"
-      - "traefik.http.routers.api-prod-secure.rule=Host(`dev-karama.brocoding.icu`)"
-      - "traefik.http.routers.api-prod-secure.tls=true"
-      - "traefik.http.routers.api-prod-secure.tls.certresolver=http"
-      - "traefik.http.services.api-prod.loadbalancer.server.port=3000"
+      - "traefik.http.routers.front-dev.middlewares=redirect-to-https"
+      - "traefik.http.routers.front-dev-secure.entrypoints=https"
+      - "traefik.http.routers.front-dev-secure.rule=Host(`dev-karama.brocoding.icu`)"
+      - "traefik.http.routers.front-dev-secure.tls=true"
+      - "traefik.http.routers.front-dev-secure.tls.certresolver=http"
+      - "traefik.http.services.front-dev.loadbalancer.server.port=3000"
 
   api_local:
     profiles:
