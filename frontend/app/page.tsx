@@ -310,6 +310,7 @@ export default function Home() {
                     </button>
                     <button
                         onClick={() => {
+                          resetForm();
                           setStatus("antonony");
                           toast.success("Merci pour votre feedback!", {
                             icon: <FaCheckCircle className="text-green-500" />,
@@ -324,7 +325,6 @@ export default function Home() {
                         onClick={() => {
                           setStatus("ambony loatra");
                           setShowModal(true);
-                          resetForm();
                         }}
                         className="p-4 bg-orange-100 hover:bg-orange-200 text-orange-700 rounded-xl transition-all flex flex-col items-center justify-center"
                     >
