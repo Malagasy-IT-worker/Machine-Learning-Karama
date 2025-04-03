@@ -95,10 +95,10 @@ services:
       - local
     build:
       context: frontend
-      dockerfile: Dockerfi0le
-      target: production
+      dockerfile: Dockerfile
+      target: development
     environment:
-      - NEXT_PUBLIC_API_URL=https://dev-api-karama.brocoding.icu
+      - NEXT_PUBLIC_API_URL=http://localhost:8080/
     ports:
       - "3000:3000"
 
