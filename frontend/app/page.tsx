@@ -324,6 +324,7 @@ export default function Home() {
                         onClick={() => {
                           setStatus("ambony loatra");
                           setShowModal(true);
+                          resetForm();
                         }}
                         className="p-4 bg-orange-100 hover:bg-orange-200 text-orange-700 rounded-xl transition-all flex flex-col items-center justify-center"
                     >
