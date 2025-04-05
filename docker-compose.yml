@@ -5,6 +5,7 @@ services:
       - prod
     volumes:
       - ./logs.log:/app/logs.log
+      - ./data:/app/data
     restart: unless-stopped
     networks:
       - proxy
@@ -26,6 +27,7 @@ services:
     image: ankoayfeno/api_ml_karama:latest
     volumes:
       - ./logs.log:/app/logs.log
+      - ./data:/app/data
     restart: unless-stopped
     networks:
       - proxy
@@ -89,6 +91,7 @@ services:
       - "8080:8080"
     volumes:
       - ./logs.log:/app/logs.log
+      - ./data:/data
 
   front_local:
     profiles:
