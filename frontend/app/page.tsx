@@ -20,10 +20,10 @@ interface Job {
 }
 
 export default function Home() {
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<Job>({
     company: "",
     title: "",
-    year_experience: 0,
+    year_experience: 0
   });
   const [salary, setSalary] = useState<number | null>(null);
   const [showModal, setShowModal] = useState(false);
@@ -117,6 +117,26 @@ export default function Home() {
     } finally {
       setLoading((l) => ({ ...l, feedback: false }));
       setShowModal(false);
+    }
+  };
+
+
+  const handleFeedbackAntonony = async () => {
+    setLoading((l) => ({ ...l, feedback: true }));
+    try {
+      await axios.post(`${API_URL}/feedback`, {
+        ...formData,
+        predicted_salary: salary,
+        status,
+        new_salary: salary,
+      });
+
+      toast.success("Merci pour votre feedback !", {
+        icon: <FaCheckCircle className="text-green-500" />,
+      });
+      resetForm();
+    } catch (error) {
+      handleApiError(error, "Erreur lors de l'envoi du feedback");
     }
   };
 
@@ -310,6 +330,11 @@ export default function Home() {
                     </button>
                     <button
                         onClick={() => {
+                          handleFeedbackAntonony()
+                              .then(response => {
+                                console.log(response);})
+                              .catch((error) => {
+                                console.log(error);});
                           resetForm();
                           setStatus("antonony");
                           toast.success("Merci pour votre feedback!", {
