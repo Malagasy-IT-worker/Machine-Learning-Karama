@@ -1,3 +1,5 @@
+version: "3.8"
+
 services:
   api_prod:
     image: ankoayfeno/api_ml_karama:latest
@@ -22,9 +24,9 @@ services:
       - "traefik.http.services.api-prod.loadbalancer.server.port=8080"
 
   api_dev:
+    image: ankoayfeno/api_ml_karama:latest
     profiles:
       - dev
-    image: ankoayfeno/api_ml_karama:latest
     volumes:
       - ./logs.log:/app/logs.log
       - ./data:/app/data
@@ -82,24 +84,24 @@ services:
       - "traefik.http.services.front-dev.loadbalancer.server.port=3000"
 
   api_local:
-    profiles:
-      - local
     build:
       context: .
       dockerfile: Dockerfile
+    profiles:
+      - local
     ports:
       - "8080:8080"
     volumes:
       - ./logs.log:/app/logs.log
-      - ./data:/data
+      - ./data:/app/data
 
   front_local:
-    profiles:
-      - local
     build:
       context: frontend
       dockerfile: Dockerfile
       target: development
+    profiles:
+      - local
     environment:
       - NEXT_PUBLIC_API_URL=http://localhost:8080
     develop:
