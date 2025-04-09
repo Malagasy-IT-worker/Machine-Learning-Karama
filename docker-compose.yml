@@ -1,5 +1,3 @@
-version: "3.8"
-
 services:
   api_prod:
     image: ankoayfeno/api_ml_karama:latest
