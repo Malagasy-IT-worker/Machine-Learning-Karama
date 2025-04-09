@@ -1,0 +1,48 @@
+---
+- name: Install Docker and execut Nginx container
+  hosts: all
+  become: true
+  tasks:
+    - name: update package links
+      apt:
+        update_cache: yes
+
+    - name: Install dep requirements
+      apt:
+        name:
+          - apt-transport-https
+          - ca-certificates
+          - curl
+          - gnupg
+          - rsync
+          - software-properties-common
+        state: present
+
+    - name: add GPG key of Docker
+      apt_key:
+        url: https://download.docker.com/linux/debian/gpg
+        state: present
+
+    - name: add Docker depo
+      apt_repository:
+        repo: deb [arch=amd64] https://download.docker.com/linux/debian bullseye stable
+        state: present
+
+    - name: Install Docker
+      apt:
+        name: docker-ce
+        state: present
+
+    - name: start Docker service
+      service:
+        name: docker
+        state: started
+        enabled: yes
+
+    # - name: Execute Nginx container
+    #   docker_container:
+    #     name: nginx
+    #     image: nginx:latest
+    #     ports:
+    #       - "80:80"
+    #     state: started
