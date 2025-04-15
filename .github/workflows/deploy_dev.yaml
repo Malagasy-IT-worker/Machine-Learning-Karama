@@ -28,8 +28,8 @@ jobs:
           SCRIPT_BEFORE: |
             sudo mkdir -p /home/${{ secrets.REMOTE_USER }}/ml_karama/
           SCRIPT_AFTER: |
-            docker compose -f "/home/${{ vars.REMOTE_USER }}/ml_karama/docker-compose.yml" --profile prod pull && \
-            docker compose -f "/home/${{ vars.REMOTE_USER }}/ml_karama/docker-compose.yml" --profile prod up -d
+            sudo docker compose -f "/home/${{ vars.REMOTE_USER }}/ml_karama/docker-compose.yml" --profile prod pull && \
+            sudo docker compose -f "/home/${{ vars.REMOTE_USER }}/ml_karama/docker-compose.yml" --profile prod up -d
 
 # jobs:
 #   deploy-dev:
