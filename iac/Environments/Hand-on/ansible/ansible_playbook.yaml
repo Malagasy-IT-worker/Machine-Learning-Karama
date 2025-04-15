@@ -1,13 +1,17 @@
 ---
-- name: Install Docker and execut Nginx container
+- name: Install Docker and execute Nginx container
   hosts: all
   become: true
+
+  vars:
+    docker_user: admin
+
   tasks:
-    - name: update package links
+    - name: Update package cache
       apt:
         update_cache: yes
 
-    - name: Install dep requirements
+    - name: Install dependencies
       apt:
         name:
           - apt-transport-https
@@ -15,34 +19,34 @@
           - curl
           - gnupg
           - rsync
+          - htop
           - software-properties-common
         state: present
 
-    - name: add GPG key of Docker
+    - name: Add Docker GPG key
       apt_key:
         url: https://download.docker.com/linux/debian/gpg
         state: present
 
-    - name: add Docker depo
+    - name: Add Docker repository
       apt_repository:
         repo: deb [arch=amd64] https://download.docker.com/linux/debian bullseye stable
         state: present
 
-    - name: Install Docker
+    - name: Install Docker CE
       apt:
         name: docker-ce
         state: present
+        update_cache: yes
 
-    - name: start Docker service
+    - name: Start and enable Docker service
       service:
         name: docker
         state: started
         enabled: yes
 
-    # - name: Execute Nginx container
-    #   docker_container:
-    #     name: nginx
-    #     image: nginx:latest
-    #     ports:
-    #       - "80:80"
-    #     state: started
+    - name: Add user to docker group
+      user:
+        name: "{{ docker_user }}"
+        groups: docker
+        append: yes
