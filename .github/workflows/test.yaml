@@ -24,10 +24,11 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Download trained model artifact
-        uses: actions/download-artifact@v2
+      - name: Download model artifact
+        uses: actions/download-artifact@v3
         with:
           name: trained-model
+          path: models/
 
       - name: Set up Python
         uses: actions/setup-python@v4
