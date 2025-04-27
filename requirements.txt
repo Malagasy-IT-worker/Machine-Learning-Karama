@@ -6,3 +6,4 @@ numpy
 joblib
 pyyaml
 pytest
+httpx
