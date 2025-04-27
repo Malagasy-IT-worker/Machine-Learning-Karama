@@ -3,7 +3,7 @@ name: Deploy Dev
 on:
   workflow_run:
     workflows:
-      - Build docker images
+      - Build Docker Images
     types:
       - completed
 
@@ -30,17 +30,3 @@ jobs:
           SCRIPT_AFTER: |
             sudo docker compose -f "/home/${{ vars.REMOTE_USER }}/ml_karama/docker-compose.yml" --profile prod pull && \
             sudo docker compose -f "/home/${{ vars.REMOTE_USER }}/ml_karama/docker-compose.yml" --profile prod up -d
-
-# jobs:
-#   deploy-dev:
-#     runs-on: ubuntu-latest
-#     steps:
-#       - name: Deploy
-#         run: |
-#           deploy_dev_api_url="${{ vars.RENDER_DEPLOY_HOOK_API_URL }}"
-#           deploy_dev_client_url="${{ vars.RENDER_DEPLOY_HOOK_CLIENT_URL }}"
-
-#           echo "Déploiement API..."
-#           curl -sSL "$deploy_dev_api_url"
-#           echo "Déploiement Client..."
-#           curl -sSL "$deploy_dev_client_url"
