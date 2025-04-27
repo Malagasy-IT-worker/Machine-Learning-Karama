@@ -30,7 +30,7 @@ jobs:
         with:
           name: trained-model
           path: models/
-          #run-id: ${{ github.event.workflow_run.id }}
+          run-id: ${{ github.event.workflow_run.id }}
           #github-token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Set up Python
