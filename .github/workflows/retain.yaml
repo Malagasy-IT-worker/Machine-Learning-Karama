@@ -1,0 +1,34 @@
+name: Retrain model
+
+on:
+  push:
+    paths:
+      - "data/**"
+  pull_request:
+    paths:
+      - "data/**"
+
+jobs:
+  retrain-model:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: "3.8"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Train model
+        run: python main.py
+
+      - name: Save model as an artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: trained-model
+          path: models/model.pkl
