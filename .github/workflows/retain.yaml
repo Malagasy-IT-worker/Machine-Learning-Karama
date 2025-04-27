@@ -1,12 +1,8 @@
 name: Retrain model
 
 on:
-  push:
-    paths:
-      - "data/**"
-  pull_request:
-    paths:
-      - "data/**"
+  - push
+  - pull_request
 
 jobs:
   retrain-model:
