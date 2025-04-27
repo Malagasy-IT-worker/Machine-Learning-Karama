@@ -2,10 +2,8 @@ name: Retrain model
 run-name: Retrain model  pipeline triggered by ${{ github.actor }} on branch ${{ github.ref_name }}
 
 on:
-  push:
-    branches: [main]
-  pull_request:
-    branches: [main]
+  - push
+  - pull_request
 
 jobs:
   retrain-model:
