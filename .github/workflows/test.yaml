@@ -49,6 +49,7 @@ jobs:
         if: steps.cache.outputs.cache-hit != 'true'
         run: |
           python -m venv .env_ml
+          ./.env_ml/bin/pip install --upgrade pip setuptools wheel
           ./.env_ml/bin/pip install -r requirements.txt
 
       - name: Run API tests
