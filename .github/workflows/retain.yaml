@@ -27,7 +27,7 @@ jobs:
         run: python main.py
 
       - name: Save model artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: trained-model
           path: models/model.pkl
