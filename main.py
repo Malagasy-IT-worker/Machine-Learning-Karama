@@ -9,6 +9,9 @@ from steps.ingest import Ingestion
 from steps.clean import Cleaner
 from steps.train import Trainer
 from steps.predict import Predictor
+from steps.feedback_formate import FeedbackTransformer
+from steps.merge_data import CSVConcatenator
+from steps.Split_data_train_test import Split_data_train_test
 from sklearn.metrics import mean_absolute_error, r2_score, mean_squared_error
 
 # Set up logging
@@ -17,6 +20,29 @@ logging.basicConfig(level=logging.INFO, format='%(asctime)s:%(levelname)s:%(mess
 def main():
     with open('config.yml', 'r') as file:
         config = yaml.safe_load(file)
+
+    #formate feedback
+    transformer = FeedbackTransformer("data/feedback.csv", "data/feedback_cleaned.csv")
+    transformer.load_data()
+    transformer.transform()
+    transformer.save()
+    logging.info("Feedback formate completed successfully")
+
+    #merge data
+    input_files = [
+        "data/feedback_cleaned.csv",
+        "data/Karama (réponses) - Réponses _cleaned_.csv"
+    ]
+    output_file = "data/merged.csv"
+    concatenator = CSVConcatenator(input_files, output_file)
+    concatenator.load_and_clean()
+    concatenator.concatenate()
+    concatenator.save()
+
+    #separate data train and test
+    data_path = "data/merged.csv"
+    data_spliter = Split_data_train_test(input_file=data_path)
+    data_spliter.process()
 
     # Load data
     ingestion = Ingestion()
@@ -49,7 +75,7 @@ def main():
     # Example prediction
     company = 'Tana'
     title = 'Développeur'
-    experience = 3
+    experience = 10
     predicted_salary = predictor.predict(company, title, experience)
     print(f"Le salaire prédit est : {predicted_salary:.2f}")
 
