@@ -1,7 +1,20 @@
 name: Test
 run-name: Test by ${{ github.actor }} on branch ${{ github.ref }}
 
-on: [push, pull_request]
+on:
+  push:
+    branches:
+      - main
+      - develop
+  pull_request:
+    branches:
+      - main
+      - develop
+  workflow_run:
+    workflows:
+      - "Retrain model"
+    types:
+      - completed
 
 jobs:
   test-api:
@@ -9,6 +22,11 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+
+      - name: Download trained model artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: trained-model
 
       - name: Set up Python
         uses: actions/setup-python@v4
