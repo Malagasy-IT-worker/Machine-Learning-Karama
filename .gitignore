@@ -163,3 +163,7 @@ cython_debug/
 
 #server logs
 logs.logclear
+
+#server logs
+backup.logs
+nohup.out
