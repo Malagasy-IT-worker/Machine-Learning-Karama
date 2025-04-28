@@ -7,3 +7,4 @@ joblib
 pyyaml
 pytest
 httpx
+gunicorn
