@@ -1,0 +1,159 @@
+company,title,year_experience,predicted_salary,status,new_salary
+Tana,Dev,0.0,1144099.77,ambany loatra,1500000.0
+Tana,Dev,2.0,2061819.98,normal,2061819.98
+Remote,Dev,1.0,1427305.99,ambany loatra,3000000.0
+Tana,Dev,4.0,3602692.64,normal,3602692.64
+Tana,Dev,1.0,1144099.77,normal,1144099.77
+Tana,Dev,5.0,3602692.64,normal,3602692.64
+Tana,Dev,1.0,1144099.77,normal,1144099.77
+Tana,Dev,10.0,3414353.94,ambany loatra,10000000.0
+Tana,Dev,50.0,3265084.37,normal,3265084.37
+Remote,IA,0.0,1206885.57,ambany loatra,1500000.0
+Remote,Dev,3.0,1860533.65,ambany loatra,4000000.0
+Tana,Dev,8.0,3414353.94,ambany loatra,6000000.0
+Remote,IA,0.0,1206885.57,ambany loatra,1206885.57
+Tana,Dev,5.0,3602692.64,normal,3602692.64
+Tana,Dev,3.0,2061819.98,normal,2061819.98
+Faritra,Dev,2.0,3142801.68,normal,3142801.68
+Tana,Dev,2.0,2061819.98,normal,2061819.98
+Tana,IA,0.0,1293179.75,normal,1293179.75
+Remote,Dev,1.0,1427305.99,normal,1427305.99
+Remote,Dev,2.0,1860533.65,antonony,1860533.65
+Remote,Dev,5.0,3624355.24,antonony,3624355.24
+Tana,Dev,5.0,3602692.64,ambany loatra,5000000.0
+Tana,Dev,4.0,3602692.64,ambany loatra,4500000.0
+Tana,Dev,3.0,2061819.98,ambany loatra,4000000.0
+Tana,DevOps,1.0,1429442.74,normal,1429442.74
+Tana,DevOps,5.0,3529498.85,antonony,3529498.85
+Tana,Dev,4.0,3602692.64,normal,3602692.64
+Remote,DevOps,1.0,1427305.99,antonony,1427305.99
+Remote,Dev,2.0,1860533.65,ambany loatra,3000000.0
+Tana,Dev,1.0,1144099.77,ambany loatra,1500000.0
+Tana,Dev,1.0,1144099.77,normal,1144099.77
+Tana,Dev,3.0,2061819.98,normal,2061819.98
+Remote,Dev,6.0,6018193.91,antonony,6018193.91
+Tana,Dev,0.0,1144099.77,normal,1144099.77
+Tana,Dev,4.0,3602692.64,normal,3602692.64
+Tana,Dev,5.0,3602692.64,normal,3602692.64
+Tana,Dev,5.0,3602692.64,normal,3602692.64
+Tana,Dev,1.0,1144099.77,ambany loatra,1200000.0
+Remote,Dev,4.0,3624355.24,ambany loatra,8000000.0
+Faritra,Dev,5.0,4806591.39,ambony loatra,2500000.0
+Remote,Dev,0.0,1427305.99,normal,1427305.99
+Remote,Dev,0.0,1427305.99,normal,1427305.99
+Tana,Dev,3.0,2061819.98,ambany loatra,2500000.0
+Tana,Dev,4.0,3602692.64,normal,3602692.64
+Tana,Dev,1.0,1144099.77,normal,1144099.77
+Tana,Dev,0.0,1144099.77,normal,1144099.77
+Tana,Dev,1.0,1144099.77,normal,1144099.77
+Remote,Dev,10.0,6018193.91,ambany loatra,10000000.0
+Tana,Dev,5.0,3602692.64,ambany loatra,5000000.0
+Remote,Dev,0.0,1427305.99,normal,1427305.99
+Remote,Dev,5.0,3624355.24,ambany loatra,5000000.0
+Tana,Dev,0.0,1144099.77,ambony loatra,1144099.77
+Tana,Dev,0.0,1144099.77,ambony loatra,1000000.0
+Tana,DevOps,5.0,3529498.85,normal,3529498.85
+Remote,Dev,5.0,3624355.24,ambany loatra,5000000.0
+Tana,Dev,2.0,2061819.98,ambony loatra,1600000.0
+Tana,Dev,0.0,1144099.77,normal,1144099.77
+Tana,DevOps,0.0,1429442.74,antonony,1429442.74
+Tana,Dev,2.0,2061819.98,normal,2061819.98
+Tana,Dev,3.0,2061819.98,normal,2061819.98
+Remote,Dev,5.0,3624355.24,ambany loatra,3624355.24
+Remote,IA,1.0,1206885.57,normal,1206885.57
+Remote,Dev,7.0,6018193.91,antonony,6018193.91
+Tana,IA,4.0,2929020.03,normal,2929020.03
+Tana,Dev,5.0,3602692.64,ambany loatra,6000000.0
+Tana,Dev,1.0,1144099.77,normal,1144099.77
+Tana,Dev,4.0,3602692.64,ambany loatra,3602692.64
+Faritra,Dev,4.0,4806591.39,normal,4806591.39
+Tana,Dev,2.0,2061819.98,normal,2061819.98
+Tana,Dev,2.0,2061819.98,normal,2061819.98
+Faritra,Dev,0.0,1757232.08,normal,1757232.08
+Tana,Dev,6.0,3414353.94,normal,3414353.94
+Remote,Dev,5.0,3624355.24,ambany loatra,6000000.0
+Tana,Dev,1.0,1144099.77,normal,1144099.77
+Tana,Dev,2.0,2061819.98,ambany loatra,2200000.0
+Tana,Dev,1.0,1144099.77,ambany loatra,3000000.0
+Tana,Dev,1.0,1144099.77,ambany loatra,3000000.0
+Tana,Dev,1.0,1144099.77,ambany loatra,3000000.0
+Tana,Dev,1.0,1144099.77,ambany loatra,3000000.0
+Tana,Dev,0.0,1144099.77,normal,1144099.77
+Remote,Dev,27.0,4910387.35,normal,4910387.35
+Remote,IA,5.0,3909650.27,ambany loatra,9000007.0
+Tana,Dev,0.0,1144099.77,normal,1144099.77
+Tana,Dev,1.0,1144099.77,normal,1144099.77
+Tana,Dev,1.0,1144099.77,normal,1144099.77
+Tana,IA,0.0,1293179.75,normal,1293179.75
+Faritra,Dev,0.0,1757232.08,normal,1757232.08
+Remote,DevOps,5.0,3860920.58,ambany loatra,12000000.0
+Tana,Dev,3.0,2061819.98,ambany loatra,4000000.0
+Tana,Dev,2.0,2061819.98,normal,2061819.98
+Remote,Dev,10.0,6018193.91,ambany loatra,11000000.0
+Tana,Dev,1.0,1144099.77,ambony loatra,800000.0
+Tana,DevOps,2.0,2340396.64,normal,2340396.64
+Tana,Dev,3.0,2061819.98,ambany loatra,3000000.0
+Tana,Dev,2.0,2061819.98,ambany loatra,2600000.0
+Tana,Dev,0.0,1144099.77,ambany loatra,1500000.0
+Faritra,Dev,1.0,1757232.08,normal,1757232.08
+Tana,Dev,4.0,3602692.64,normal,3602692.64
+Tana,Dev,7.0,3414353.94,normal,3414353.94
+Remote,Dev,7.0,6018193.91,antonony,6018193.91
+Faritra,Dev,0.0,1757232.08,normal,1757232.08
+Tana,Dev,10.0,3414353.94,ambany loatra,6000000.0
+Tana,Dev,1.0,1144099.77,normal,1144099.77
+Tana,Dev,0.0,1144099.77,normal,1144099.77
+Tana,Dev,3.0,2061819.98,normal,2061819.98
+Tana,Dev,0.0,1144099.77,antonony,1144099.77
+Remote,Dev,2.0,1860533.65,normal,1860533.65
+Remote,Dev,4.0,3624355.24,normal,3624355.24
+Tana,Dev,0.0,1144099.77,normal,1144099.77
+Tana,Dev,2.0,2061819.98,normal,2061819.98
+Tana,Dev,3.0,2061819.98,ambany loatra,2500000.0
+Tana,Dev,0.0,1144099.77,ambany loatra,2000000.0
+Tana,Dev,15.0,3265084.37,normal,3265084.37
+Tana,Dev,1.0,1144099.77,normal,1144099.77
+Tana,Dev,2.0,2061819.98,ambany loatra,3000000.0
+Tana,Dev,0.0,1144099.77,normal,1144099.77
+Tana,Dev,3.0,2061819.98,normal,2061819.98
+Remote,Dev,3.0,1860533.65,ambany loatra,3000000.0
+Tana,DevOps,0.0,1429442.74,normal,1429442.74
+Tana,Dev,3.0,2061819.98,ambany loatra,3000000.0
+Tana,Dev,0.0,1144099.77,normal,1144099.77
+Tana,Dev,9.0,3414353.94,ambany loatra,5500000.0
+Remote,IA,5.0,3909650.27,ambany loatra,8000000.0
+Tana,Dev,10.0,3414353.94,ambany loatra,6000000.0
+Faritra,IA,1.0,2055796.14,ambany loatra,3000000.0
+Tana,Dev,7.0,3414353.94,ambany loatra,9500000.0
+Remote,Dev,1.0,1427305.99,ambany loatra,1500000.0
+Remote,Dev,5.0,3624355.24,ambany loatra,5000000.0
+Tana,IA,1.0,1293179.75,ambany loatra,2500000.0
+Tana,Dev,3.0,2061819.98,normal,2061819.98
+Tana,Dev,0.0,1144099.77,ambony loatra,1000000.0
+Tana,Dev,2.0,2061819.98,normal,2061819.98
+Remote,Dev,6.0,6018193.91,ambany loatra,6018193.91
+Tana,Dev,1.0,1144099.77,ambany loatra,3000000.0
+Tana,Dev,3.0,2061819.98,ambany loatra,4000000.0
+Tana,DevOps,5.0,3529498.85,normal,3529498.85
+Remote,Dev,6.0,6018193.91,normal,6018193.91
+Remote,Dev,6.0,6018193.91,normal,6018193.91
+Tana,Dev,4.0,3602692.64,normal,3602692.64
+Tana,Dev,10.0,3414353.94,ambany loatra,5000000.0
+Tana,Dev,5.0,3602692.64,normal,3602692.64
+Remote,Dev,1.0,1427305.99,ambany loatra,2500000.0
+Tana,DevOps,0.0,1429442.74,normal,1429442.74
+Faritra,DevOps,1.0,1757232.08,ambony loatra,180000.0
+Tana,DevOps,1.0,1429442.74,ambony loatra,1429442.74
+Tana,IA,1.0,1293179.75,ambony loatra,600000.0
+Remote,Dev,2.0,1860533.65,normal,1860533.65
+Tana,Dev,1.0,1144099.77,ambany loatra,2000000.0
+Tana,Dev,0.0,1144099.77,normal,1144099.77
+Tana,Dev,2.0,2061819.98,normal,2061819.98
+Tana,Dev,5.0,3602692.64,ambany loatra,6000000.0
+Tana,DevOps,50.0,3287921.58,normal,3287921.58
+Tana,DevOps,2.0,2340396.64,normal,2340396.64
+Tana,Dev,1.0,1144099.77,normal,1144099.77
+Tana,Dev,23.0,3265084.37,normal,3265084.37
+Remote,DevOps,23.0,5969500.49,antonony,5969500.49
+Remote,Dev,0.0,1427305.99,normal,1427305.99
+Tana,Dev,1.0,1144099.77,ambany loatra,1144099.77
