@@ -2,14 +2,14 @@ name: Test
 run-name: Test by ${{ github.actor }} on branch ${{ github.ref }}
 
 on:
-  push:
-    branches:
-      - main
-      - develop
-  pull_request:
-    branches:
-      - main
-      - develop
+  # push:
+  #   branches:
+  #     - main
+  #     - develop
+  # pull_request:
+  #   branches:
+  #     - main
+  #     - develop
   workflow_run:
     workflows:
       - "Retrain model"
