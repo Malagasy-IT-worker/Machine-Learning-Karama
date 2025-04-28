@@ -22,7 +22,7 @@ def main():
         config = yaml.safe_load(file)
 
     #formate feedback
-    transformer = FeedbackTransformer("data/feedback.csv", "data/feedback_cleaned.csv")
+    transformer = FeedbackTransformer("data/feedback_data.csv", "data/feedback_cleaned.csv")
     transformer.load_data()
     transformer.transform()
     transformer.save()
