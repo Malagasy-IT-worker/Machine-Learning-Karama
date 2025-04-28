@@ -22,14 +22,6 @@ jobs:
         id: generate
         run: echo "hex_tag=$(date +%Y%m%d%H%M%S)-$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
 
-      - name: Get original model run ID
-        id: get-model-run-id
-        run: |
-          RESPONSE=$(curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
-            "https://api.github.com/repos/${{ github.repository }}/actions/runs/${{ github.event.workflow_run.run_id }}")
-          MODEL_RUN_ID=$(echo $RESPONSE | jq '.workflow_run_id')
-          echo "model_run_id=$MODEL_RUN_ID" >> $GITHUB_OUTPUT
-
   build-and-push-api:
     needs: generate-tag
     runs-on: ubuntu-latest
@@ -43,8 +35,9 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: trained-model
-          path: models/
-          run-id: ${{ needs.generate-tag.outputs.model_run_id }}
+          path: models/model.pkl
+          run-id: ${{ github.event.workflow_run.id }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Login to Docker Hub
         uses: docker/login-action@v3
