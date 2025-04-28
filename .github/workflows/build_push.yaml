@@ -35,7 +35,7 @@ jobs:
         with:
           name: trained-model
           path: models/
-          run-id: ${{ github.event.workflow_run.id }}
+          run-id: ${{ needs.generate-tag.outputs.model_run_id }} # ID corrigé
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Login to Docker Hub
