@@ -44,7 +44,12 @@ model = joblib.load('models/model.pkl')
 
 @app.get("/")
 async def read_root():
-    return {"salary_check": "OK", "model_version": 1}
+    return {
+        "salary_check": "OK",
+        "model_version": 1,
+        "status": "healthy",
+        "api_version": "1.0.0"
+    }
 
 @app.post("/predict")
 async def predict(input_data: InputData):
