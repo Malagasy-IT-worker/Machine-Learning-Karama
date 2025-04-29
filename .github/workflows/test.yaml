@@ -1,5 +1,5 @@
 name: Test
-run-name: Test by ${{ github.actor }} on branch ${{ github.ref }}
+run-name: Test
 
 on:
   # push:

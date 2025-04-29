@@ -1,6 +1,5 @@
 name: Build Docker Images
-run-name: Build Docker Images pipeline triggered by ${{ github.actor }} on branch ${{ github.ref_name }}
-
+run-name: Build Docker Images pipeline
 on:
   workflow_run:
     workflows:
