@@ -162,8 +162,7 @@ cython_debug/
 #.idea/
 
 #server logs
-logs.logclear
-
-#server logs
+logs.log
 backup.logs
 nohup.out
+feedback_pusher.logs
