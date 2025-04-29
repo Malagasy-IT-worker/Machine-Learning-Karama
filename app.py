@@ -1,101 +1,134 @@
 from fastapi import FastAPI, HTTPException
-from pydantic import BaseModel
+from pydantic import BaseModel, Field, validator
 from typing import Optional
 import pandas as pd
 import numpy as np
 import joblib
 import os
+import logging
 from fastapi.middleware.cors import CORSMiddleware
+
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
 
 app = FastAPI()
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000", "https://api-karama.brocoding.icu/"],  # À adapter selon vos besoins
+    allow_origins=["http://localhost:3000", "https://yourfrontenddomain.com"],  # À adapter
     allow_credentials=True,
-    allow_methods=["GET", "POST"],
+    allow_methods=["GET", "POST", "OPTIONS"],
     allow_headers=["*"],
 )
 
 class InputData(BaseModel):
-    company: str
-    title: str
-    year_experience: float
+    company: str = Field(..., example="Tana")
+    title: str = Field(..., example="Développeur")
+    year_experience: float = Field(..., ge=0, le=50, example=3.5)
+
+    @validator('company')
+    def validate_company(cls, v):
+        valid_companies = ['Tana', 'Faritra', 'Remote']
+        if v not in valid_companies:
+            raise ValueError(f"Société doit être parmi {valid_companies}")
+        return v
 
 class FeedbackData(InputData):
-    predicted_salary: float
-    status: str
-    new_salary: Optional[float] = None
-
-@app.post("/feedback")
-async def feedback(feedback_data: FeedbackData):
-    try:
-        print(feedback_data.dict())
-        df = pd.DataFrame([feedback_data.dict()])
-
-        os.makedirs("data", exist_ok=True)
-
-        file_exists = os.path.exists("data/feedback_data.csv")
-        df.to_csv("data/feedback_data.csv", mode='a', index=False, header=not file_exists)
-
-        return {"message": "Feedback saved", "count": len(feedback_data.dict())}
-    except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
+    predicted_salary: float = Field(..., gt=0)
+    status: str = Field(..., example="success")
+    new_salary: Optional[float] = Field(None, gt=0)
 
 try:
     model = joblib.load('models/model.pkl')
+    logger.info("Modèle chargé avec succès")
 except Exception as e:
-    raise RuntimeError(f"Erreur lors du chargement du modèle: {e}")
+    logger.error(f"Erreur de chargement du modèle: {e}")
+    raise RuntimeError("Impossible de charger le modèle")
+
+@app.post("/feedback")
+async def create_feedback(feedback_data: FeedbackData):
+    """Enregistre un feedback dans un fichier CSV"""
+    try:
+        logger.info(f"Reçu feedback: {feedback_data.dict()}")
+
+        os.makedirs("data", exist_ok=True)
+
+        df = pd.DataFrame([feedback_data.dict()])
+        file_exists = os.path.exists("data/feedback_data.csv")
+        df.to_csv("data/feedback_data.csv", mode='a', index=False, header=not file_exists)
+
+        return {"status": "success", "message": "Feedback enregistré"}
+
+    except Exception as e:
+        logger.error(f"Erreur feedback: {str(e)}")
+        raise HTTPException(status_code=500, detail="Erreur serveur")
 
 @app.get("/")
-async def read_root():
-    return {"salary_check": "OK", "model_version": 1}
+async def health_check():
+    """Endpoint de vérification de santé"""
+    return {
+        "status": "healthy",
+        "model_version": 1,
+        "api_version": "1.0.0"
+    }
 
 @app.post("/predict")
-async def predict(input_data: InputData):
+async def predict_salary(input_data: InputData):
+    """Prédit le salaire basé sur les données d'entrée"""
     try:
-        company_mapping = {'Tana': 2, 'Faritra': 0, 'Remote': 1}
-        title_mapping = {'dev': 1, 'AI': 0, 'devops': 2}
-        exp_mapping = {
-            'Junior': 4,
+        COMPANY_MAPPING = {'Tana': 2, 'Faritra': 0, 'Remote': 1}
+        TITLE_MAPPING = {'dev': 1, 'AI': 0, 'devops': 2}
+        EXP_MAPPING = {
             'Débutant': 0,
+            'Junior': 4,
             'Intermédiaire': 3,
             'Expérimenté': 2,
             'Expert': 1
         }
 
-        def categorize_title(title):
+        def categorize_title(title: str) -> str:
             title = title.lower()
-            devops_keywords = ['devops', 'sre', 'infrastructure', 'administrateur', 'sysadmin', 'cloud']
-            ai_keywords = ['ai', 'data', 'analyst', 'scientist', 'intelligence', 'machine learning', 'ml', 'ia', 'bi']
-
-            if any(kw in title for kw in devops_keywords):
+            if any(kw in title for kw in ['devops', 'sre', 'infra']):
                 return 'devops'
-            if any(kw in title for kw in ai_keywords):
+            if any(kw in title for kw in ['ai', 'ml', 'data science']):
                 return 'AI'
             return 'dev'
 
-        company_encoded = company_mapping.get(input_data.company, -1)
-        title_encoded = title_mapping.get(categorize_title(input_data.title), -1)
+        company_encoded = COMPANY_MAPPING[input_data.company]
+        title_category = categorize_title(input_data.title)
+        title_encoded = TITLE_MAPPING.get(title_category, -1)
 
-        exp_category = str(pd.cut(
+        exp_bins = [0, 1, 3, 5, 10, 50]
+        exp_labels = ['Débutant', 'Junior', 'Intermédiaire', 'Expérimenté', 'Expert']
+        exp_category = pd.cut(
             [input_data.year_experience],
-            bins=[0, 1, 3, 5, 10, 100],
-            labels=['Junior', 'Débutant', 'Intermédiaire', 'Expérimenté', 'Expert'],
+            bins=exp_bins,
+            labels=exp_labels,
             include_lowest=True
-        )[0])
-        exp_encoded = exp_mapping.get(exp_category, -1)
+        )[0]
+        exp_encoded = EXP_MAPPING.get(str(exp_category), -1)
 
-        if -1 in [company_encoded, title_encoded, exp_encoded]:
-            raise HTTPException(status_code=400, detail="Valeur d'entrée invalide")
+        if -1 in [title_encoded, exp_encoded]:
+            raise ValueError("Combinaison titre/expérience non valide")
 
-        df = pd.DataFrame(
+        features = pd.DataFrame(
             [[company_encoded, title_encoded, exp_encoded]],
             columns=['company_encoded', 'title_encoded', 'exp_encoded']
         )
+        prediction = np.expm1(model.predict(features)[0])
 
-        pred = model.predict(df)
-        return {"predicted_salary": round(np.expm1(pred)[0], 2)}
+        return {
+            "predicted_salary": round(prediction, 2),
+            "metadata": {
+                "company": input_data.company,
+                "title_category": title_category,
+                "experience_level": str(exp_category)
+            }
+        }
 
+    except ValueError as ve:
+        logger.warning(f"Erreur validation: {ve}")
+        raise HTTPException(status_code=400, detail=str(ve))
     except Exception as e:
-        raise HTTPException(status_code=500, detail=f"Erreur de prédiction: {str(e)}")
+        logger.error(f"Erreur prédiction: {str(e)}")
+        raise HTTPException(status_code=500, detail="Erreur de prédiction")
