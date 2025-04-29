@@ -28,7 +28,7 @@ export default function Home() {
   const [salary, setSalary] = useState<number | null>(null);
   const [showModal, setShowModal] = useState(false);
   const [userSalary, setUserSalary] = useState<number>(0);
-  const [status, setStatus] = useState<string>("normal");
+  const [status, setStatus] = useState<string>("Antonony");
   const [loading, setLoading] = useState({
     submit: false,
     feedback: false,
@@ -129,10 +129,6 @@ export default function Home() {
         predicted_salary: salary,
         status,
         new_salary: salary,
-      });
-
-      toast.success("Merci pour votre feedback !", {
-        icon: <FaCheckCircle className="text-green-500" />,
       });
       resetForm();
     } catch (error) {
@@ -278,7 +274,7 @@ export default function Home() {
                     type="number"
                     id="year_experience"
                     min="0"
-                    max="50"
+                    max="20"
                     className="w-full pl-10 pr-4 py-3 border-2 border-gray-200 rounded-lg focus:border-blue-500"
                     value={formData.year_experience}
                     onChange={(e) =>
@@ -335,7 +331,6 @@ export default function Home() {
                                 console.log(response);})
                               .catch((error) => {
                                 console.log(error);});
-                          resetForm();
                           setStatus("antonony");
                           toast.success("Merci pour votre feedback!", {
                             icon: <FaCheckCircle className="text-green-500" />,
@@ -346,6 +341,8 @@ export default function Home() {
                       <FaCheckCircle className="text-2xl mb-2" />
                       Antonony
                     </button>
+
+
                     <button
                         onClick={() => {
                           setStatus("ambony loatra");
