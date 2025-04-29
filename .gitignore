@@ -166,3 +166,8 @@ logs.log
 backup.logs
 nohup.out
 feedback_pusher.logs
+
+
+#data
+data/train.csv
+data/test.csv
