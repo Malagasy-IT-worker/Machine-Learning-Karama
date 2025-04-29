@@ -7,7 +7,12 @@ def test_read_root():
     """ Teste si l'API répond bien """
     response = client.get("/")
     assert response.status_code == 200
-    assert response.json() == {"salary_check": "OK", "model_version": 1}
+    assert response.json() == {
+        "salary_check": "OK",
+        "model_version": 1,
+        "status": "healthy",
+        "api_version": "1.0.0"
+    }
 
 def test_predict():
     """ Teste la prédiction avec des valeurs valides """

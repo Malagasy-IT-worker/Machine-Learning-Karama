@@ -67,8 +67,9 @@ async def create_feedback(feedback_data: FeedbackData):
 async def health_check():
     """Endpoint de vérification de santé"""
     return {
-        "status": "healthy",
+        "salary_check": "OK",
         "model_version": 1,
+        "status": "healthy",
         "api_version": "1.0.0"
     }
 
