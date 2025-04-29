@@ -15,7 +15,7 @@ app = FastAPI()
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000", "https://yourfrontenddomain.com"],  # À adapter
+    allow_origins=["http://localhost:3000", "https://karama.brocoding.icu/"],  # À adapter
     allow_credentials=True,
     allow_methods=["GET", "POST", "OPTIONS"],
     allow_headers=["*"],
