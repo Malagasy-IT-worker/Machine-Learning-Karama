@@ -29,11 +29,11 @@ def test_invalid_predict_input():
     input_data = {
         "company": "Unknown",
         "title": "Mystery Job",
-        "year_experience": -5  # invalid value
+        "year_experience": -5  # valeur invalide
     }
     response = client.post("/predict", json=input_data)
-    assert response.status_code == 200
-    assert "error" in response.json()
+    assert response.status_code == 400
+    assert "invalide" in response.json()["detail"].lower()
 
 def test_feedback():
     """ test the feedback post """
