@@ -30,16 +30,22 @@ def test_predict():
     assert isinstance(data["predicted_salary"], float)
 
 def test_invalid_predict_input():
-    """ Teste avec une valeur invalide """
-    input_data = {
-        "company": "Unknown",
-        "title": "Mystery Job",
-        "year_experience": -5  # valeur invalide
-    }
-    response = client.post("/predict", json=input_data)
-    assert response.status_code == 400
-    assert "invalide" in response.json()["detail"].lower()
+    """Teste la validation des entrées invalides"""
+    test_cases = [
+        {
+            "input": {"company": "Unknown", "title": "Dev", "year_experience": 2},
+            "expected_error": "company"
+        },
+        {
+            "input": {"company": "Tana", "title": "Dev", "year_experience": -5},
+            "expected_error": "greater than or equal to 0"
+        }
+    ]
 
+    for case in test_cases:
+        response = client.post("/predict", json=case["input"])
+        assert response.status_code == 422
+        assert case["expected_error"] in str(response.json())
 def test_feedback():
     """ test the feedback post """
     feedback_data = {
