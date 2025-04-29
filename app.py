@@ -36,7 +36,7 @@ async def feedback(feedback_data: FeedbackData):
     df = pd.DataFrame([feedback_data.dict()])
     file_exists = os.path.exists("data/feedback_data.csv")
     df.to_csv("data/feedback_data.csv", mode='a', index = False, header=not file_exists)
-    return {"message": "Feedback saved", "count": len(feedback_data.dict())}
+    return {"message": "Feedback enregistré", "count": len(feedback_data.dict())}
 
 
 model = joblib.load('models/model.pkl')
