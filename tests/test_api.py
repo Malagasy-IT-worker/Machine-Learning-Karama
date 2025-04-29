@@ -57,4 +57,4 @@ def test_feedback():
     }
     response = client.post("/feedback", json=feedback_data)
     assert response.status_code == 200
-    assert response.json()["message"] == "Feedback saved"
+    assert response.json()["message"] == "Feedback enregistré"
