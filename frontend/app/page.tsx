@@ -1,6 +1,7 @@
 "use client";
 import { useState, useEffect, FormEvent } from "react";
 import axios from "axios";
+import type { Metadata } from "next";
 import {
   FaBuilding,
   FaBriefcase,
