@@ -1,5 +1,5 @@
 services:
-  api_prod:
+  api-prod:
     image: ankoayfeno/api_ml_karama:latest
     profiles:
       - prod
@@ -21,7 +21,7 @@ services:
       - "traefik.http.routers.api-prod-secure.tls.certresolver=http"
       - "traefik.http.services.api-prod.loadbalancer.server.port=8080"
 
-  api_dev:
+  api-dev:
     image: ankoayfeno/api_ml_karama:latest
     profiles:
       - dev
@@ -43,7 +43,7 @@ services:
       - "traefik.http.routers.api-dev-secure.tls.certresolver=http"
       - "traefik.http.services.api-dev.loadbalancer.server.port=8080"
 
-  front_prod:
+  front-prod:
     image: ankoayfeno/ml_karama:prod-latest
     profiles:
       - prod
@@ -62,7 +62,7 @@ services:
       - "traefik.http.routers.front-prod-secure.tls.certresolver=http"
       - "traefik.http.services.front-prod.loadbalancer.server.port=3000"
 
-  front_dev:
+  front-dev:
     image: ankoayfeno/ml_karama:dev-latest
     profiles:
       - dev
@@ -81,7 +81,7 @@ services:
       - "traefik.http.routers.front-dev-secure.tls.certresolver=http"
       - "traefik.http.services.front-dev.loadbalancer.server.port=3000"
 
-  api_local:
+  api-local:
     build:
       context: .
       dockerfile: Dockerfile
@@ -93,7 +93,7 @@ services:
       - ./logs.log:/app/logs.log
       - ./data:/app/data
 
-  front_local:
+  front-local:
     build:
       context: frontend
       dockerfile: Dockerfile
